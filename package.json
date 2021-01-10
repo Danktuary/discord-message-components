@@ -6,5 +6,8 @@
     "packages/*"
   ],
   "author": "Sanctuary <sanc.pw@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
 }
