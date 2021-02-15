@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"target": "es2017",
+		"strict": true,
+		"jsx": "preserve",
+		"moduleResolution": "node",
+		"importHelpers": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"sourceMap": true,
+		"lib": ["es2017", "dom", "dom.iterable"]
+	},
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.tsx",
+	],
+	"exclude": [
+		"node_modules"
+	]
+}
