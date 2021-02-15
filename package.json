@@ -8,6 +8,9 @@
   "author": "Sanctuary <sanc.pw@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "husky": "^5.0.9",
     "lerna": "^4.0.0"
   }
 }
