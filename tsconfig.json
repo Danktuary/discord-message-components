@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"esModuleInterop": true,
+		"importHelpers": true,
+		"jsx": "preserve",
+		"lib": ["esnext", "dom"],
+		"module": "esnext",
+		"moduleResolution": "node",
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"strict": true,
+		"target": "esnext",
+	},
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.tsx",
+	],
+	"exclude": [
+		"node_modules"
+	]
+}
