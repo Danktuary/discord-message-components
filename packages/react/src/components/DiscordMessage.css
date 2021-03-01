@@ -1,0 +1,70 @@
+.discord-message {
+	color: #dcddde;
+	display: flex;
+	font-size: 0.9em;
+	margin: 1em 0;
+	padding: 0.25em 1em 0;
+}
+
+.discord-message:hover {
+	background-color: #32353b;
+}
+
+.discord-light-theme .discord-message {
+	color: #2e3338;
+}
+
+.discord-light-theme .discord-message:hover {
+	background-color: #fafafa;
+}
+
+.discord-message a {
+	color: #0096cf;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.discord-message a:hover {
+	text-decoration: underline;
+}
+
+.discord-light-theme .discord-message a {
+	color: #00b0f4;
+}
+
+.discord-message .discord-author-avatar {
+	margin-top: 1px;
+	margin-right: 16px;
+	min-width: 40px;
+}
+
+.discord-message .discord-author-avatar img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+
+.discord-message .discord-message-content {
+	width: 100%;
+	line-height: 160%;
+	font-weight: normal;
+	overflow-wrap: anywhere;
+}
+
+.discord-message .discord-message-body {
+	position: relative;
+}
+
+.discord-compact-mode .discord-message {
+	margin: 0.15em 0;
+	padding-left: 0.25em;
+	padding-right: 0.25em;
+}
+
+.discord-compact-mode .discord-author-avatar {
+	display: none;
+}
+
+.discord-compact-mode .discord-message-body {
+	margin-left: 0.25em;
+}

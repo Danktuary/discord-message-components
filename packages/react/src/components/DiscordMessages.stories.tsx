@@ -1,5 +1,6 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
+import DiscordMessage from './DiscordMessage'
 import DiscordMessages, { DiscordMessagesProps } from './DiscordMessages'
 
 export default {
@@ -8,7 +9,9 @@ export default {
 } as Meta
 
 const Template: Story<DiscordMessagesProps> = args => (
-	<DiscordMessages {...args}></DiscordMessages>
+	<DiscordMessages {...args}>
+		<DiscordMessage>Hello World</DiscordMessage>
+	</DiscordMessages>
 )
 
 export const Default = Template.bind({})
