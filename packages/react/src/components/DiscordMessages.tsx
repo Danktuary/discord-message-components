@@ -1,14 +1,19 @@
-import React, { Children, cloneElement, ReactNode } from 'react'
-import PropTypes, { InferProps, ReactElementLike } from 'prop-types'
+import React, { Children, cloneElement, ReactElement } from 'react'
 import './DiscordMessages.css'
 
-function DiscordMessages({ children, compactMode, lightTheme }: InferProps<typeof DiscordMessages.propTypes>): ReactNode {
+export type DiscordMessagesProps = {
+	children: ReactElement,
+	compactMode?: boolean,
+	lightTheme?: boolean,
+}
+
+function DiscordMessages({ children, compactMode, lightTheme }: DiscordMessagesProps): ReactElement {
 	let classes = 'discord-messages'
 	if (lightTheme) classes += ' discord-light-theme'
 	if (compactMode) classes += ' discord-compact-mode'
 
 	const messages = Children.map(children, (child, index) => {
-		return cloneElement(child as ReactElementLike, { key: index })
+		return cloneElement(child, { key: index })
 	})
 
 	return (
@@ -16,12 +21,6 @@ function DiscordMessages({ children, compactMode, lightTheme }: InferProps<typeo
 			{messages}
 		</div>
 	)
-}
-
-DiscordMessages.propTypes = {
-	children: PropTypes.node,
-	compactMode: PropTypes.bool,
-	lightTheme: PropTypes.bool,
 }
 
 export default DiscordMessages
