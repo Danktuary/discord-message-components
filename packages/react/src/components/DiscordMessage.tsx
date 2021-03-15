@@ -3,10 +3,19 @@ import AuthorInfo from './AuthorInfo'
 import './DiscordMessage.css'
 
 export type DiscordMessageProps = {
+	author?: string,
+	bot?: boolean,
 	children?: ReactNode,
+	roleColor?: string,
 }
 
-export default function DiscordMessage({ children, compactMode }: DiscordMessageProps & { compactMode?: boolean }): ReactElement {
+export default function DiscordMessage({
+	author = 'User',
+	bot,
+	children,
+	compactMode,
+	roleColor,
+}: DiscordMessageProps & { compactMode?: boolean }): ReactElement {
 	const highlightMessage = (elements: ReactNode): boolean => {
 		if (!Array.isArray(elements)) return false
 		return (elements as ReactElement[]).some(({ props = {} }) => props?.highlight && props?.type !== 'channel')
@@ -14,6 +23,8 @@ export default function DiscordMessage({ children, compactMode }: DiscordMessage
 
 	let messageClasses = 'discord-message'
 	if (children && highlightMessage(children)) messageClasses += ' discord-mention-highlight'
+
+	const user = { author, bot, roleColor }
 
 	return (
 		<div className={messageClasses}>
@@ -24,14 +35,14 @@ export default function DiscordMessage({ children, compactMode }: DiscordMessage
 				{!compactMode
 					? (
 						<div>
-							<AuthorInfo author="User" bot={true} roleColor="#0099ff" />
+							<AuthorInfo author={user.author} bot={user.bot} roleColor={user.roleColor} />
 						</div>
 					)
 					: null
 				}
 				<div className="discord-message-body">
 					{compactMode
-						? <AuthorInfo author="User" bot={true} roleColor="#0099ff" />
+						? <AuthorInfo author={user.author} bot={user.bot} roleColor={user.roleColor} />
 						: null
 					}
 					{children}
