@@ -5,11 +5,11 @@
 		</div>
 		<div class="discord-message-content">
 			<div v-if="!compactMode">
-				<author-info author="User" :bot="true" role-color="#0099ff" />
+				<author-info :author="user.author" :bot="user.bot" :role-color="user.roleColor" />
 			</div>
 			<div class="discord-message-body">
 				<template v-if="compactMode">
-					<author-info author="User" :bot="true" role-color="#0099ff" />
+					<author-info :author="user.author" :bot="user.bot" :role-color="user.roleColor" />
 				</template>
 				<slot></slot>
 			</div>
@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, inject } from 'vue'
+import { computed, defineComponent, inject, reactive, toRefs } from 'vue'
 import AuthorInfo from './AuthorInfo.vue'
 
 export default defineComponent({
@@ -26,16 +26,28 @@ export default defineComponent({
 	components: {
 		AuthorInfo,
 	},
+	props: {
+		author: {
+			type: String,
+			'default': 'User',
+		},
+		bot: Boolean,
+		roleColor: String,
+	},
 	setup(props, { slots }) {
+		const { author, bot, roleColor } = toRefs(props)
 		const compactMode = inject('compactMode')
 
 		const highlightMessage = computed(() => {
 			return slots.default?.().some(slot => slot?.props?.highlight && slot?.props?.type !== 'channel')
 		})
 
+		const user = reactive({ author, bot, roleColor })
+
 		return {
 			compactMode,
 			highlightMessage,
+			user,
 		}
 	},
 })
