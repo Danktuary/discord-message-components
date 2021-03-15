@@ -1,0 +1,23 @@
+{
+  "name": "@discord-message-components/core",
+  "version": "0.0.0",
+  "main": "./dist/core.umd.js",
+  "module": "./dist/core.es.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/core.es.js",
+      "require": "./dist/core.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^2.0.1"
+  }
+}
