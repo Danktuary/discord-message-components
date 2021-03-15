@@ -6,7 +6,7 @@ export type DiscordMessageProps = {
 	children?: ReactNode,
 }
 
-function DiscordMessage({ children, compactMode }: DiscordMessageProps & { compactMode?: boolean }): ReactElement {
+export default function DiscordMessage({ children, compactMode }: DiscordMessageProps & { compactMode?: boolean }): ReactElement {
 	return (
 		<div className="discord-message">
 			<div className="discord-author-avatar">
@@ -32,5 +32,3 @@ function DiscordMessage({ children, compactMode }: DiscordMessageProps & { compa
 		</div>
 	)
 }
-
-export default DiscordMessage

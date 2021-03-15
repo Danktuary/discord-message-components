@@ -7,7 +7,7 @@ export type DiscordMessagesProps = {
 	lightTheme?: boolean,
 }
 
-function DiscordMessages({ children, compactMode, lightTheme }: DiscordMessagesProps): ReactElement {
+export default function DiscordMessages({ children, compactMode, lightTheme }: DiscordMessagesProps): ReactElement {
 	let classes = 'discord-messages'
 	if (lightTheme) classes += ' discord-light-theme'
 	if (compactMode) classes += ' discord-compact-mode'
@@ -22,5 +22,3 @@ function DiscordMessages({ children, compactMode, lightTheme }: DiscordMessagesP
 		</div>
 	)
 }
-
-export default DiscordMessages
