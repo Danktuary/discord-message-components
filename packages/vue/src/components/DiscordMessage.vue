@@ -1,5 +1,5 @@
 <template>
-	<div class="discord-message">
+	<div :class="{ 'discord-mention-highlight': highlightMessage }" class="discord-message">
 		<div class="discord-author-avatar">
 			<img src="https://cdn.discordapp.com/attachments/654503812593090602/665721745466195978/blue.png" alt="" />
 		</div>
@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, inject } from 'vue'
+import { computed, defineComponent, inject } from 'vue'
 import AuthorInfo from './AuthorInfo.vue'
 
 export default defineComponent({
@@ -26,11 +26,16 @@ export default defineComponent({
 	components: {
 		AuthorInfo,
 	},
-	setup() {
+	setup(props, { slots }) {
 		const compactMode = inject('compactMode')
+
+		const highlightMessage = computed(() => {
+			return slots.default?.().some(slot => slot?.props?.highlight && slot?.props?.type !== 'channel')
+		})
 
 		return {
 			compactMode,
+			highlightMessage,
 		}
 	},
 })
@@ -106,5 +111,25 @@ export default defineComponent({
 
 .discord-compact-mode .discord-message-body {
 	margin-left: 0.25em;
+}
+
+.discord-message.discord-mention-highlight {
+	background-color: rgba(250, 166, 26, 0.05);
+	position: relative;
+}
+
+.discord-message.discord-mention-highlight::before {
+	content: '';
+	background-color: #faa61a;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 2px;
+}
+
+.discord-message.discord-mention-highlight:hover {
+	background-color: rgba(250, 166, 26, 0.1);
 }
 </style>
