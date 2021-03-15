@@ -13,7 +13,7 @@ function DiscordMessages({ children, compactMode, lightTheme }: DiscordMessagesP
 	if (compactMode) classes += ' discord-compact-mode'
 
 	const messages = Children.map(children, (child, index) => {
-		return cloneElement(child, { key: index })
+		return cloneElement(child, { compactMode, key: index })
 	})
 
 	return (

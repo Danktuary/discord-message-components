@@ -6,15 +6,26 @@ export type DiscordMessageProps = {
 	children?: ReactNode,
 }
 
-function DiscordMessage({ children }: DiscordMessageProps): ReactElement {
+function DiscordMessage({ children, compactMode }: DiscordMessageProps & { compactMode?: boolean }): ReactElement {
 	return (
 		<div className="discord-message">
 			<div className="discord-author-avatar">
 				<img src="https://cdn.discordapp.com/attachments/654503812593090602/665721745466195978/blue.png" alt="" />
 			</div>
 			<div className="discord-message-content">
-				<AuthorInfo author="User" bot={true} roleColor="#0099ff" />
+				{!compactMode
+					? (
+						<div>
+							<AuthorInfo author="User" bot={true} roleColor="#0099ff" />
+						</div>
+					)
+					: null
+				}
 				<div className="discord-message-body">
+					{compactMode
+						? <AuthorInfo author="User" bot={true} roleColor="#0099ff" />
+						: null
+					}
 					{children}
 				</div>
 			</div>
