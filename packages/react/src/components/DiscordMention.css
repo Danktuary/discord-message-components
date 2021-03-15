@@ -9,3 +9,12 @@
 	color: #fff;
 	background-color: rgba(114, 137, 218, 0.7);
 }
+
+.discord-message.discord-mention-highlight .discord-mention {
+	background-color: unset !important;
+}
+
+.discord-message.discord-mention-highlight .discord-mention:hover {
+	color: #7289da;
+	text-decoration: underline;
+}

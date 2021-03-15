@@ -3,6 +3,7 @@ import './DiscordMention.css'
 
 export type DiscordMentionProps = {
 	children?: ReactNode,
+	highlight?: boolean,
 	type?: string,
 }
 

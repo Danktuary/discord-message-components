@@ -68,3 +68,23 @@
 .discord-compact-mode .discord-message-body {
 	margin-left: 0.25em;
 }
+
+.discord-message.discord-mention-highlight {
+	background-color: rgba(250, 166, 26, 0.05);
+	position: relative;
+}
+
+.discord-message.discord-mention-highlight::before {
+	content: '';
+	background-color: #faa61a;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 2px;
+}
+
+.discord-message.discord-mention-highlight:hover {
+	background-color: rgba(250, 166, 26, 0.1);
+}

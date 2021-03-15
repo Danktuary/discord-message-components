@@ -25,6 +25,11 @@ const Template: Story<DiscordMentionProps> = args => (
 
 export const Default = Template.bind({})
 
+export const Highlight = Template.bind({})
+Highlight.args = {
+	highlight: true,
+}
+
 export const Channel = Template.bind({})
 Channel.args = {
 	type: 'channel',
