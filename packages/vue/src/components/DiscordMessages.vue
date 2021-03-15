@@ -5,13 +5,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, provide } from 'vue'
 
 export default defineComponent({
 	name: 'DiscordMessages',
 	props: {
 		compactMode: Boolean,
 		lightTheme: Boolean,
+	},
+	setup(props) {
+		provide('compactMode', props.compactMode)
 	},
 })
 </script>

@@ -4,8 +4,13 @@
 			<img src="https://cdn.discordapp.com/attachments/654503812593090602/665721745466195978/blue.png" alt="" />
 		</div>
 		<div class="discord-message-content">
-			<author-info author="User" :bot="true" role-color="#0099ff" />
+			<div v-if="!compactMode">
+				<author-info author="User" :bot="true" role-color="#0099ff" />
+			</div>
 			<div class="discord-message-body">
+				<template v-if="compactMode">
+					<author-info author="User" :bot="true" role-color="#0099ff" />
+				</template>
 				<slot></slot>
 			</div>
 		</div>
@@ -13,13 +18,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, inject } from 'vue'
 import AuthorInfo from './AuthorInfo.vue'
 
 export default defineComponent({
 	name: 'DiscordMessage',
 	components: {
 		AuthorInfo,
+	},
+	setup() {
+		const compactMode = inject('compactMode')
+
+		return {
+			compactMode,
+		}
 	},
 })
 </script>
