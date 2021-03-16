@@ -47,6 +47,11 @@ Bot.args = {
 	bot: true,
 }
 
+export const Edited = Template.bind({})
+Edited.args = {
+	edited: true,
+}
+
 export const RoleColor = Template.bind({})
 RoleColor.args = {
 	roleColor: '#0099ff',

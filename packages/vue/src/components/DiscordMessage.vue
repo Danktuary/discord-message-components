@@ -18,6 +18,7 @@
 					<author-info :author="user.author" :bot="user.bot" :role-color="user.roleColor" />
 				</template>
 				<slot></slot>
+				<span v-if="edited" class="discord-message-edited">(edited)</span>
 			</div>
 		</div>
 	</div>
@@ -39,6 +40,7 @@ export default defineComponent({
 			'default': 'User',
 		},
 		bot: Boolean,
+		edited: Boolean,
 		roleColor: String,
 		timestamp: {
 			type: [Date, String],
@@ -117,6 +119,12 @@ export default defineComponent({
 .discord-message .discord-message-timestamp {
 	color: #72767d;
 	font-size: 12px;
+	margin-left: 3px;
+}
+
+.discord-message .discord-message-edited {
+	color: #72767d;
+	font-size: 10px;
 	margin-left: 3px;
 }
 
