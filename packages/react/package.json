@@ -20,6 +20,9 @@
     "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook"
   },
+  "dependencies": {
+    "@discord-message-components/core": "^0.0.0"
+  },
   "peerDependencies": {
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
