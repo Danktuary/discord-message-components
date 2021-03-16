@@ -50,6 +50,12 @@
 	margin-left: 3px;
 }
 
+.discord-message .discord-message-edited {
+	color: #72767d;
+	font-size: 10px;
+	margin-left: 3px;
+}
+
 .discord-message .discord-message-content {
 	width: 100%;
 	line-height: 160%;

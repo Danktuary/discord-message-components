@@ -7,6 +7,7 @@ export type DiscordMessageProps = {
 	author?: string,
 	bot?: boolean,
 	children?: ReactNode,
+	edited?: boolean,
 	roleColor?: string,
 	timestamp?: Date | string,
 }
@@ -16,6 +17,7 @@ export default function DiscordMessage({
 	bot,
 	children,
 	compactMode,
+	edited,
 	roleColor,
 	timestamp = util.defaultTimestamp,
 }: DiscordMessageProps & { compactMode?: boolean }): ReactElement {
@@ -61,6 +63,7 @@ export default function DiscordMessage({
 						: null
 					}
 					{children}
+					{edited ? <span className="discord-message-edited">(edited)</span> : null}
 				</div>
 			</div>
 		</div>
