@@ -1,5 +1,6 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
+import { util } from '@discord-message-components/core'
 import DiscordMessage, { DiscordMessageProps } from './DiscordMessage'
 import DiscordMessages from './DiscordMessages'
 
@@ -10,6 +11,10 @@ export default {
 		roleColor: {
 			control: 'color',
 			defaultValue: '',
+		},
+		timestamp: {
+			control: 'date',
+			defaultValue: util.defaultTimestamp,
 		},
 	},
 } as Meta
@@ -35,4 +40,9 @@ Bot.args = {
 export const RoleColor = Template.bind({})
 RoleColor.args = {
 	roleColor: '#0099ff',
+}
+
+export const Timestamp = Template.bind({})
+Timestamp.args = {
+	timestamp: '01/01/2021',
 }

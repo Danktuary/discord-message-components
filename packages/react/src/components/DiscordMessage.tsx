@@ -1,4 +1,5 @@
-import React, { ReactElement, ReactNode } from 'react'
+import React, { Fragment, ReactElement, ReactNode } from 'react'
+import { util } from '@discord-message-components/core'
 import AuthorInfo from './AuthorInfo'
 import './DiscordMessage.css'
 
@@ -7,6 +8,7 @@ export type DiscordMessageProps = {
 	bot?: boolean,
 	children?: ReactNode,
 	roleColor?: string,
+	timestamp?: Date | string,
 }
 
 export default function DiscordMessage({
@@ -15,6 +17,7 @@ export default function DiscordMessage({
 	children,
 	compactMode,
 	roleColor,
+	timestamp = util.defaultTimestamp,
 }: DiscordMessageProps & { compactMode?: boolean }): ReactElement {
 	const highlightMessage = (elements: ReactNode): boolean => {
 		if (!Array.isArray(elements)) return false
@@ -23,6 +26,8 @@ export default function DiscordMessage({
 
 	let messageClasses = 'discord-message'
 	if (children && highlightMessage(children)) messageClasses += ' discord-mention-highlight'
+
+	const messageTimestamp = util.parseTimestamp(timestamp)
 
 	const user = { author, bot, roleColor }
 
@@ -36,13 +41,23 @@ export default function DiscordMessage({
 					? (
 						<div>
 							<AuthorInfo author={user.author} bot={user.bot} roleColor={user.roleColor} />
+							<span className="discord-message-timestamp">
+								{messageTimestamp}
+							</span>
 						</div>
 					)
 					: null
 				}
 				<div className="discord-message-body">
 					{compactMode
-						? <AuthorInfo author={user.author} bot={user.bot} roleColor={user.roleColor} />
+						? (
+							<Fragment>
+								<span className="discord-message-timestamp">
+									{messageTimestamp}
+								</span>
+								<AuthorInfo author={user.author} bot={user.bot} roleColor={user.roleColor} />
+							</Fragment>
+						)
 						: null
 					}
 					{children}
