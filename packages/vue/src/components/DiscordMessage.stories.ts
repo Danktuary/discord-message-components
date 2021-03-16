@@ -1,4 +1,5 @@
 import { Meta, Story } from '@storybook/vue3'
+import { util } from '@discord-message-components/core'
 import DiscordMessage from './DiscordMessage.vue'
 import DiscordMessages from './DiscordMessages.vue'
 
@@ -9,6 +10,10 @@ export default {
 		roleColor: {
 			control: 'color',
 			defaultValue: '',
+		},
+		timestamp: {
+			control: 'date',
+			defaultValue: util.defaultTimestamp,
 		},
 	},
 } as Meta
@@ -45,4 +50,9 @@ Bot.args = {
 export const RoleColor = Template.bind({})
 RoleColor.args = {
 	roleColor: '#0099ff',
+}
+
+export const Timestamp = Template.bind({})
+Timestamp.args = {
+	timestamp: '01/01/2021',
 }
