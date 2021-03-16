@@ -20,6 +20,9 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
+  "dependencies": {
+    "@discord-message-components/core": "^0.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.13.8",
     "@storybook/addon-actions": "^6.2.0-beta.14",
