@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "main": "./dist/core.umd.js",
   "module": "./dist/core.es.js",
+  "types": "src/index.d.ts",
   "files": [
     "dist"
   ],
