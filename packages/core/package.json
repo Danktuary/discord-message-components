@@ -19,6 +19,10 @@
     "serve": "vite preview"
   },
   "devDependencies": {
+    "@types/color-rgba": "^2.1.0",
     "vite": "^2.0.1"
+  },
+  "dependencies": {
+    "color-rgba": "^2.2.3"
   }
 }
