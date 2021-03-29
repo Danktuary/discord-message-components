@@ -8,6 +8,10 @@ export default {
 	title: 'DiscordMention',
 	component: DiscordMention,
 	argTypes: {
+		color: {
+			control: 'color',
+			defaultValue: '',
+		},
 		type: {
 			control: {
 				type: 'select',
@@ -24,6 +28,12 @@ const Template: Story<DiscordMentionProps> = args => (
 )
 
 export const Default = Template.bind({})
+
+export const Color = Template.bind({})
+Color.args = {
+	color: '#0099ff',
+	type: 'role',
+}
 
 export const Highlight = Template.bind({})
 Highlight.args = {
