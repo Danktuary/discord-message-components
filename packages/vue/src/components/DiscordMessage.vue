@@ -20,6 +20,7 @@
 				<slot></slot>
 				<span v-if="edited" class="discord-message-edited">(edited)</span>
 			</div>
+			<slot name="embeds"></slot>
 		</div>
 	</div>
 </template>
