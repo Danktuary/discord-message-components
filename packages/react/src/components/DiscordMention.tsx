@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode, useEffect, useRef, useState } from 'react'
 import { util } from '@discord-message-components/core'
-import './DiscordMention.css'
+import '@discord-message-components/core/dist/styles/discord-mention.css'
 
 export type DiscordMentionProps = {
 	children?: ReactNode,
