@@ -6,10 +6,11 @@ export type DiscordEmbedProps = {
 	authorName?: string,
 	authorUrl?: string,
 	children?: ReactNode,
+	color?: string,
 	slot?: string,
 }
 
-export default function DiscordEmbed({ authorIcon, authorName, authorUrl, children }: DiscordEmbedProps): ReactElement {
+export default function DiscordEmbed({ authorIcon, authorName, authorUrl, children, color }: DiscordEmbedProps): ReactElement {
 	const content = {
 		author: (
 			<div className="discord-embed-author">
@@ -24,7 +25,7 @@ export default function DiscordEmbed({ authorIcon, authorName, authorUrl, childr
 
 	return (
 		<div className="discord-embed">
-			<div className="discord-embed-left-border"></div>
+			<div style={{ backgroundColor: color }} className="discord-embed-left-border"></div>
 			<div className="discord-embed-container">
 				<div className="discord-embed-content">
 					<div>
