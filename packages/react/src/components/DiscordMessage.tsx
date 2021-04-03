@@ -1,7 +1,7 @@
 import React, { Fragment, ReactElement, ReactNode } from 'react'
 import { util } from '@discord-message-components/core'
 import AuthorInfo from './AuthorInfo'
-import './DiscordMessage.css'
+import '@discord-message-components/core/dist/styles/discord-message.css'
 
 export type DiscordMessageProps = {
 	author?: string,
