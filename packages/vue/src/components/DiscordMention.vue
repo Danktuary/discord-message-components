@@ -69,25 +69,4 @@ export default defineComponent({
 })
 </script>
 
-<style>
-.discord-message .discord-mention {
-	color: #7289da;
-	background-color: rgba(114, 137, 218, 0.1);
-	font-weight: 500;
-	padding: 0 1px;
-}
-
-.discord-message .discord-mention:hover {
-	color: #fff;
-	background-color: rgba(114, 137, 218, 0.7);
-}
-
-.discord-message.discord-mention-highlight .discord-mention {
-	background-color: unset !important;
-}
-
-.discord-message.discord-mention-highlight .discord-mention:hover {
-	color: #7289da;
-	text-decoration: underline;
-}
-</style>
+<style src="@discord-message-components/core/dist/styles/discord-mention.css"></style>
