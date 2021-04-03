@@ -1,7 +1,7 @@
 <template>
 	<div :class="{ 'discord-mention-highlight': highlightMessage }" class="discord-message">
 		<div class="discord-author-avatar">
-			<img src="https://cdn.discordapp.com/attachments/654503812593090602/665721745466195978/blue.png" alt="" />
+			<img :src="user.avatar" alt="" />
 		</div>
 		<div class="discord-message-content">
 			<div v-if="!compactMode">
@@ -26,7 +26,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, inject, reactive, toRefs } from 'vue'
-import { util } from '@discord-message-components/core'
+import { avatars, util } from '@discord-message-components/core'
 import AuthorInfo from './AuthorInfo.vue'
 
 export default defineComponent({
@@ -39,6 +39,7 @@ export default defineComponent({
 			type: String,
 			'default': 'User',
 		},
+		avatar: String,
 		bot: Boolean,
 		edited: Boolean,
 		roleColor: String,
@@ -48,7 +49,7 @@ export default defineComponent({
 		},
 	},
 	setup(props, { slots }) {
-		const { author, bot, roleColor, timestamp } = toRefs(props)
+		const { author, avatar, bot, roleColor, timestamp } = toRefs(props)
 		const compactMode = inject('compactMode')
 
 		const highlightMessage = computed(() => {
@@ -57,7 +58,9 @@ export default defineComponent({
 
 		const messageTimestamp = computed(() => util.parseTimestamp(timestamp.value))
 
-		const user = reactive({ author, bot, roleColor })
+		const resolveAvatar = (userAvatar: string) => avatars[userAvatar] || userAvatar
+
+		const user = reactive({ author, avatar: resolveAvatar(avatar?.value ?? 'blue'), bot, roleColor })
 
 		return {
 			compactMode,
