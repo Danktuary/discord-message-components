@@ -1,5 +1,6 @@
-import React, { Fragment, ReactElement, ReactNode } from 'react'
+import React, { Fragment, ReactElement, ReactNode, isValidElement } from 'react'
 import { avatars, util } from '@discord-message-components/core'
+import { elementsWithoutSlot, findSlot } from '../util'
 import AuthorInfo from './AuthorInfo'
 import '@discord-message-components/core/dist/styles/discord-message.css'
 
@@ -37,6 +38,19 @@ export default function DiscordMessage({
 
 	const user = { author, avatar: resolveAvatar(avatar ?? 'blue'), bot, roleColor }
 
+	const slots = {
+		'default': children,
+		embeds: findSlot(children, 'embeds'),
+	}
+
+	if (slots.embeds) {
+		if (!isValidElement(slots.embeds)) {
+			throw new Error('Element with slot name "embeds" should be a valid DiscordEmbed component.')
+		}
+
+		slots.default = elementsWithoutSlot(slots.default, 'embeds')
+	}
+
 	return (
 		<div className={messageClasses}>
 			<div className="discord-author-avatar">
@@ -66,9 +80,10 @@ export default function DiscordMessage({
 						)
 						: null
 					}
-					{children}
+					{slots.default}
 					{edited ? <span className="discord-message-edited">(edited)</span> : null}
 				</div>
+				{slots.embeds}
 			</div>
 		</div>
 	)
