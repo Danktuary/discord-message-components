@@ -41,6 +41,34 @@
 	display: flex;
 }
 
+.discord-embed .discord-embed-author {
+	color: #fff;
+	display: flex;
+	align-items: center;
+	font-weight: 500;
+	margin-top: 8px;
+}
+
+.discord-light-theme .discord-embed .discord-embed-author {
+	color: #4f545c;
+}
+
+.discord-embed .discord-embed-author a {
+	color: #fff;
+	font-weight: 500;
+}
+
+.discord-light-theme .discord-embed .discord-embed-author a {
+	color: #4f545c;
+}
+
+.discord-embed .discord-embed-author .discord-embed-author-icon {
+	width: 24px;
+	height: 24px;
+	margin-right: 8px;
+	border-radius: 50%;
+}
+
 .discord-embed .discord-embed-description {
 	margin-top: 8px;
 }
