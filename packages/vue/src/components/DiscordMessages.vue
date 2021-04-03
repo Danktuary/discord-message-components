@@ -19,19 +19,4 @@ export default defineComponent({
 })
 </script>
 
-<style>
-.discord-messages {
-	color: #fff;
-	background-color: #36393e;
-	font-size: 16px;
-	font-family: sans-serif;
-	line-height: 170%;
-	border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.discord-messages.discord-light-theme {
-	color: #747f8d;
-	background-color: #f7f7f7;
-	border-color: #dedede;
-}
-</style>
+<style src="@discord-message-components/core/dist/styles/discord-messages.css"></style>
