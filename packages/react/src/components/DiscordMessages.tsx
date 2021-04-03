@@ -1,5 +1,5 @@
 import React, { Children, cloneElement, ReactElement } from 'react'
-import './DiscordMessages.css'
+import '@discord-message-components/core/dist/styles/discord-messages.css'
 
 export type DiscordMessagesProps = {
 	children: ReactElement,
