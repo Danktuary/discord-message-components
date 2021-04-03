@@ -32,3 +32,27 @@ const Template: Story = args => ({
 })
 
 export const Default = Template.bind({})
+
+export const AuthorName = Template.bind({})
+AuthorName.args = {
+	authorName: 'Author name',
+}
+
+export const AuthorNameAndIcon = Template.bind({})
+AuthorNameAndIcon.args = {
+	authorName: 'Author name',
+	authorIcon: 'https://i.imgur.com/0TeacfY.png',
+}
+
+export const AuthorNameAndUrl = Template.bind({})
+AuthorNameAndUrl.args = {
+	authorName: 'Author name',
+	authorUrl: 'https://i.imgur.com/0TeacfY.png',
+}
+
+export const AuthorNameIconAndUrl = Template.bind({})
+AuthorNameIconAndUrl.args = {
+	authorName: 'Author name',
+	authorIcon: 'https://i.imgur.com/0TeacfY.png',
+	authorUrl: 'https://i.imgur.com/0TeacfY.png',
+}
