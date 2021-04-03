@@ -6,6 +6,12 @@ import DiscordMessages from './DiscordMessages.vue'
 export default {
 	title: 'DiscordEmbed',
 	component: DiscordEmbed,
+	argTypes: {
+		color: {
+			control: 'color',
+			defaultValue: '',
+		},
+	},
 } as Meta
 
 const Template: Story = args => ({
@@ -55,4 +61,9 @@ AuthorNameIconAndUrl.args = {
 	authorName: 'Author name',
 	authorIcon: 'https://i.imgur.com/0TeacfY.png',
 	authorUrl: 'https://i.imgur.com/0TeacfY.png',
+}
+
+export const Color = Template.bind({})
+Color.args = {
+	color: '#0099ff',
 }

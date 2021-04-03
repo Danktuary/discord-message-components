@@ -1,6 +1,6 @@
 <template>
 	<div class="discord-embed">
-		<div class="discord-embed-left-border"></div>
+		<div :style="{ 'background-color': color }" class="discord-embed-left-border"></div>
 		<div class="discord-embed-container">
 			<div class="discord-embed-content">
 				<div>
@@ -31,6 +31,7 @@ export default defineComponent({
 		authorIcon: String,
 		authorName: String,
 		authorUrl: String,
+		color: String,
 	},
 	setup(props) {
 		const { authorIcon, authorName, authorUrl } = toRefs(props)
