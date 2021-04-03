@@ -7,12 +7,6 @@
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "import": "./dist/core.es.js",
-      "require": "./dist/core.umd.js"
-    }
-  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
