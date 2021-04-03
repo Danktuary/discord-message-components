@@ -1,10 +1,11 @@
 import React, { Fragment, ReactElement, ReactNode } from 'react'
-import { util } from '@discord-message-components/core'
+import { avatars, util } from '@discord-message-components/core'
 import AuthorInfo from './AuthorInfo'
 import '@discord-message-components/core/dist/styles/discord-message.css'
 
 export type DiscordMessageProps = {
 	author?: string,
+	avatar?: string,
 	bot?: boolean,
 	children?: ReactNode,
 	edited?: boolean,
@@ -14,6 +15,7 @@ export type DiscordMessageProps = {
 
 export default function DiscordMessage({
 	author = 'User',
+	avatar,
 	bot,
 	children,
 	compactMode,
@@ -31,12 +33,14 @@ export default function DiscordMessage({
 
 	const messageTimestamp = util.parseTimestamp(timestamp)
 
-	const user = { author, bot, roleColor }
+	const resolveAvatar = (userAvatar: string) => avatars[userAvatar] || userAvatar
+
+	const user = { author, avatar: resolveAvatar(avatar ?? 'blue'), bot, roleColor }
 
 	return (
 		<div className={messageClasses}>
 			<div className="discord-author-avatar">
-				<img src="https://cdn.discordapp.com/attachments/654503812593090602/665721745466195978/blue.png" alt="" />
+				<img src={user.avatar} alt="" />
 			</div>
 			<div className="discord-message-content">
 				{!compactMode

@@ -32,6 +32,11 @@ Author.args = {
 	author: 'Author',
 }
 
+export const Avatar = Template.bind({})
+Avatar.args = {
+	avatar: 'https://i.imgur.com/0TeacfY.png',
+}
+
 export const Bot = Template.bind({})
 Bot.args = {
 	bot: true,
