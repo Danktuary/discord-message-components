@@ -1,5 +1,5 @@
 import React from 'react'
-import { Story, Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import DiscordEmbed, { DiscordEmbedProps } from './DiscordEmbed'
 import DiscordMessage from './DiscordMessage'
 import DiscordMessages from './DiscordMessages'

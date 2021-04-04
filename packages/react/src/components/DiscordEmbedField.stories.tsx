@@ -1,5 +1,5 @@
 import React from 'react'
-import { Story, Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import DiscordEmbed from './DiscordEmbed'
 import DiscordEmbedField, { DiscordEmbedFieldProps } from './DiscordEmbedField'
 import DiscordEmbedFields from './DiscordEmbedFields'

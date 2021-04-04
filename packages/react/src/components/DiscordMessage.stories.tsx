@@ -1,5 +1,5 @@
 import React from 'react'
-import { Story, Meta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import { util } from '@discord-message-components/core'
 import DiscordMessage, { DiscordMessageProps } from './DiscordMessage'
 import DiscordMessages from './DiscordMessages'

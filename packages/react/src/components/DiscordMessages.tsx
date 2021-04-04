@@ -1,4 +1,4 @@
-import React, { Children, cloneElement, PropsWithChildren, ReactElement } from 'react'
+import React, { Children, PropsWithChildren, ReactElement, cloneElement } from 'react'
 import '@discord-message-components/core/dist/styles/discord-messages.css'
 
 export type DiscordMessagesProps = PropsWithChildren<{
