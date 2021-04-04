@@ -28,12 +28,25 @@
 				</div>
 				<img v-if="thumbnail" :src="thumbnail" alt="" class="discord-embed-thumbnail" />
 			</div>
+			<div v-if="showFooter" class="discord-embed-footer">
+				<img v-if="showFooterIcon" :src="footerIcon" alt="" class="discord-embed-footer-icon" />
+				<span>
+					<slot name="footer"></slot>
+					<span v-if="showFooterSeparator" class="discord-embed-footer-separator">
+						&bull;
+					</span>
+					<span v-if="embedTimestamp">
+						{{ embedTimestamp }}
+					</span>
+				</span>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
 import { computed, defineComponent, toRefs } from 'vue'
+import { util } from '@discord-message-components/core'
 
 export default defineComponent({
 	name: 'DiscordEmbed',
@@ -42,13 +55,15 @@ export default defineComponent({
 		authorName: String,
 		authorUrl: String,
 		color: String,
+		footerIcon: String,
 		image: String,
 		thumbnail: String,
+		timestamp: [Date, String],
 		title: String,
 		url: String,
 	},
-	setup(props) {
-		const { authorIcon, authorName, authorUrl } = toRefs(props)
+	setup(props, { slots }) {
+		const { authorIcon, authorName, authorUrl, footerIcon, timestamp } = toRefs(props)
 
 		const author = computed(() => ({
 			icon: authorIcon?.value,
@@ -56,8 +71,17 @@ export default defineComponent({
 			url: authorUrl?.value,
 		}))
 
+		const embedTimestamp = computed(() => timestamp?.value ? util.parseTimestamp(timestamp?.value) : null)
+		const showFooter = computed(() => slots.footer || embedTimestamp.value)
+		const showFooterIcon = computed(() => slots.footer && footerIcon?.value)
+		const showFooterSeparator = computed(() => slots.footer && embedTimestamp.value)
+
 		return {
 			author,
+			embedTimestamp,
+			showFooter,
+			showFooterIcon,
+			showFooterSeparator,
 		}
 	},
 })
