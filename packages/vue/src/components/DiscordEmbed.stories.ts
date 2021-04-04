@@ -73,6 +73,11 @@ Image.args = {
 	image: 'https://i.imgur.com/0TeacfY.png',
 }
 
+export const Thumbnail = Template.bind({})
+Thumbnail.args = {
+	thumbnail: 'https://i.imgur.com/0TeacfY.png',
+}
+
 export const Title = Template.bind({})
 Title.args = {
 	title: 'Embed title',

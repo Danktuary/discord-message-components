@@ -26,6 +26,7 @@
 					</div>
 					<img v-if="image" :src="image" alt="" class="discord-embed-image" />
 				</div>
+				<img v-if="thumbnail" :src="thumbnail" alt="" class="discord-embed-thumbnail" />
 			</div>
 		</div>
 	</div>
@@ -42,6 +43,7 @@ export default defineComponent({
 		authorUrl: String,
 		color: String,
 		image: String,
+		thumbnail: String,
 		title: String,
 		url: String,
 	},
