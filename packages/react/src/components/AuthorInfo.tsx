@@ -14,10 +14,9 @@ export default function AuthorInfo({ author, bot, roleColor }: AuthorInfoProps):
 				{author}
 			</span>
 			{bot
-				? (<span className="discord-author-bot-tag">
+				&& <span className="discord-author-bot-tag">
 					Bot
-				</span>)
-				: null}
+				</span>}
 		</span>
 	)
 }

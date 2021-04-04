@@ -57,30 +57,22 @@ export default function DiscordMessage({
 			</div>
 			<div className="discord-message-content">
 				{!compactMode
-					? (
-						<div>
-							<AuthorInfo author={user.author} bot={user.bot} roleColor={user.roleColor} />
+					&& <div>
+						<AuthorInfo author={user.author} bot={user.bot} roleColor={user.roleColor} />
+						<span className="discord-message-timestamp">
+							{messageTimestamp}
+						</span>
+					</div>}
+				<div className="discord-message-body">
+					{compactMode
+						&& <Fragment>
 							<span className="discord-message-timestamp">
 								{messageTimestamp}
 							</span>
-						</div>
-					)
-					: null
-				}
-				<div className="discord-message-body">
-					{compactMode
-						? (
-							<Fragment>
-								<span className="discord-message-timestamp">
-									{messageTimestamp}
-								</span>
-								<AuthorInfo author={user.author} bot={user.bot} roleColor={user.roleColor} />
-							</Fragment>
-						)
-						: null
-					}
+							<AuthorInfo author={user.author} bot={user.bot} roleColor={user.roleColor} />
+						</Fragment>}
 					{slots.default}
-					{edited ? <span className="discord-message-edited">(edited)</span> : null}
+					{edited && <span className="discord-message-edited">(edited)</span>}
 				</div>
 				{slots.embeds}
 			</div>
