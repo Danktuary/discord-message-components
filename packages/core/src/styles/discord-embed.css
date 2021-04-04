@@ -100,3 +100,29 @@
 	margin-top: 16px;
 	border-radius: 4px;
 }
+
+.discord-embed .discord-embed-footer {
+	color: #72767d;
+	display: flex;
+	align-items: center;
+	font-size: 0.85em;
+	margin-top: 8px;
+}
+
+.discord-embed .discord-embed-footer .discord-embed-footer-icon {
+	flex-shrink: 0;
+	width: 20px;
+	height: 20px;
+	margin-right: 8px;
+	border-radius: 50%;
+}
+
+.discord-embed .discord-embed-footer .discord-embed-footer-separator {
+	color: #3b3c42;
+	font-weight: 700;
+	margin: 0 4px;
+}
+
+.discord-light-theme .discord-embed .discord-embed-footer .discord-embed-footer-separator {
+	color: #e4e4e4;
+}
