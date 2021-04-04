@@ -9,6 +9,7 @@ export type DiscordEmbedProps = {
 	color?: string,
 	image?: string,
 	slot?: string,
+	thumbnail?: string,
 	title?: string,
 	url?: string,
 }
@@ -20,6 +21,7 @@ export default function DiscordEmbed({
 	children,
 	color,
 	image,
+	thumbnail,
 	title,
 	url,
 }: DiscordEmbedProps): ReactElement {
@@ -55,6 +57,7 @@ export default function DiscordEmbed({
 						</div>
 						{image && <img src={image} alt="" className="discord-embed-image" />}
 					</div>
+					{thumbnail && <img src={thumbnail} alt="" className="discord-embed-thumbnail" />}
 				</div>
 			</div>
 		</div>
