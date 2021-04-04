@@ -9,9 +9,15 @@ import DiscordMessages from './DiscordMessages'
 export default {
 	title: 'DiscordEmbedField',
 	component: DiscordEmbedField,
+	argTypes: {
+		defaultSlot: {
+			control: 'text',
+			defaultValue: 'Field value',
+		},
+	},
 } as Meta
 
-const Template: Story<DiscordEmbedFieldProps & { fieldValue?: string }> = args => (
+const Template: Story<DiscordEmbedFieldProps & { defaultSlot?: string }> = args => (
 	<DiscordMessages>
 		<DiscordMessage>
 			Hello World
@@ -19,9 +25,9 @@ const Template: Story<DiscordEmbedFieldProps & { fieldValue?: string }> = args =
 				Embed content
 				{args.fieldTitle
 					&& <DiscordEmbedFields slot="fields">
-						<DiscordEmbedField {...args}>{args.fieldValue}</DiscordEmbedField>
-						<DiscordEmbedField {...args}>{args.fieldValue}</DiscordEmbedField>
-						<DiscordEmbedField {...args}>{args.fieldValue}</DiscordEmbedField>
+						<DiscordEmbedField {...args}>{args.defaultSlot}</DiscordEmbedField>
+						<DiscordEmbedField {...args}>{args.defaultSlot}</DiscordEmbedField>
+						<DiscordEmbedField {...args}>{args.defaultSlot}</DiscordEmbedField>
 					</DiscordEmbedFields>}
 			</DiscordEmbed>
 		</DiscordMessage>
@@ -33,7 +39,6 @@ export const Default = Template.bind({})
 export const Field = Template.bind({})
 Field.args = {
 	fieldTitle: 'Field title',
-	defaultSlot: 'Field value',
 }
 
 export const InlineField = Template.bind({})

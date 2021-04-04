@@ -8,6 +8,10 @@ export default {
 	title: 'DiscordEmbed',
 	component: DiscordEmbed,
 	argTypes: {
+		defaultSlot: {
+			control: 'text',
+			defaultValue: 'Embed content',
+		},
 		borderColor: {
 			control: 'color',
 			defaultValue: '',
@@ -19,13 +23,13 @@ export default {
 	},
 } as Meta
 
-const Template: Story<DiscordEmbedProps & { footer?: string }> = args => (
+const Template: Story<DiscordEmbedProps & { defaultSlot?: string, footerSlot?: string }> = args => (
 	<DiscordMessages>
 		<DiscordMessage>
 			Hello World
 			<DiscordEmbed slot="embeds" {...args}>
-				Embed content
-				{args.footer && <span slot="footer">{args.footer}</span>}
+				{args.defaultSlot}
+				{args.footerSlot && <span slot="footer">{args.footerSlot}</span>}
 			</DiscordEmbed>
 		</DiscordMessage>
 	</DiscordMessages>

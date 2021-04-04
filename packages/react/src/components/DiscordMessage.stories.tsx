@@ -8,6 +8,10 @@ export default {
 	title: 'DiscordMessage',
 	component: DiscordMessage,
 	argTypes: {
+		defaultSlot: {
+			control: 'text',
+			defaultValue: 'Hello World',
+		},
 		roleColor: {
 			control: 'color',
 			defaultValue: '',
@@ -19,9 +23,9 @@ export default {
 	},
 } as Meta
 
-const Template: Story<DiscordMessageProps> = args => (
+const Template: Story<DiscordMessageProps & { defaultSlot?: string }> = args => (
 	<DiscordMessages>
-		<DiscordMessage {...args}>Hello World</DiscordMessage>
+		<DiscordMessage {...args}>{args.defaultSlot}</DiscordMessage>
 	</DiscordMessages>
 )
 
