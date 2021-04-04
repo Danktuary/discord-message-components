@@ -11,7 +11,7 @@ export default function DiscordMessages({ children, compactMode, lightTheme }: D
 	if (lightTheme) classes += ' discord-light-theme'
 	if (compactMode) classes += ' discord-compact-mode'
 
-	const messages = Children.map(children, (child, index) => {
+	const messages = Children.map((children as ReactElement[]), (child: ReactElement, index: number): ReactElement => {
 		return cloneElement(child, { compactMode, key: index })
 	})
 
