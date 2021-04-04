@@ -69,6 +69,18 @@
 	border-radius: 50%;
 }
 
+.discord-embed .discord-embed-title {
+	color: #fff;
+	font-size: 16px;
+	font-weight: 600;
+	margin-top: 8px;
+}
+
+.discord-embed .discord-embed-title a {
+	color: #00b0f4;
+	font-weight: 600;
+}
+
 .discord-embed .discord-embed-description {
 	margin-top: 8px;
 }
