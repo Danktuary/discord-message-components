@@ -68,6 +68,11 @@ Color.args = {
 	color: '#0099ff',
 }
 
+export const Image = Template.bind({})
+Image.args = {
+	image: 'https://i.imgur.com/0TeacfY.png',
+}
+
 export const Title = Template.bind({})
 Title.args = {
 	title: 'Embed title',

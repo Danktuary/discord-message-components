@@ -24,6 +24,7 @@
 					<div class="discord-embed-description">
 						<slot></slot>
 					</div>
+					<img v-if="image" :src="image" alt="" class="discord-embed-image" />
 				</div>
 			</div>
 		</div>
@@ -40,6 +41,7 @@ export default defineComponent({
 		authorName: String,
 		authorUrl: String,
 		color: String,
+		image: String,
 		title: String,
 		url: String,
 	},
