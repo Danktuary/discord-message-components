@@ -7,7 +7,7 @@ export type DiscordEmbedProps = {
 	authorIcon?: string,
 	authorName?: string,
 	authorUrl?: string,
-	color?: string,
+	borderColor?: string,
 	image?: string,
 	footerIcon?: string,
 	thumbnail?: string,
@@ -21,7 +21,7 @@ export default function DiscordEmbed({
 	authorName,
 	authorUrl,
 	children,
-	color,
+	borderColor,
 	footerIcon,
 	image,
 	thumbnail,
@@ -87,7 +87,7 @@ export default function DiscordEmbed({
 
 	return (
 		<div className="discord-embed">
-			<div style={{ backgroundColor: color }} className="discord-embed-left-border"></div>
+			<div style={{ backgroundColor: borderColor }} className="discord-embed-left-border"></div>
 			<div className="discord-embed-container">
 				<div className="discord-embed-content">
 					<div>
