@@ -7,7 +7,7 @@ export default {
 	title: 'DiscordEmbed',
 	component: DiscordEmbed,
 	argTypes: {
-		color: {
+		borderColor: {
 			control: 'color',
 			defaultValue: '',
 		},
@@ -67,9 +67,9 @@ AuthorNameIconAndUrl.args = {
 	...AuthorNameAndUrl.args,
 }
 
-export const Color = Template.bind({})
-Color.args = {
-	color: '#0099ff',
+export const BorderColor = Template.bind({})
+BorderColor.args = {
+	borderColor: '#0099ff',
 }
 
 export const Footer = Template.bind({})

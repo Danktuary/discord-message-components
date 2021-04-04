@@ -1,6 +1,6 @@
 <template>
 	<div class="discord-embed">
-		<div :style="{ 'background-color': color }" class="discord-embed-left-border"></div>
+		<div :style="{ 'background-color': borderColor }" class="discord-embed-left-border"></div>
 		<div class="discord-embed-container">
 			<div class="discord-embed-content">
 				<div>
@@ -55,7 +55,7 @@ export default defineComponent({
 		authorIcon: String,
 		authorName: String,
 		authorUrl: String,
-		color: String,
+		borderColor: String,
 		footerIcon: String,
 		image: String,
 		thumbnail: String,
