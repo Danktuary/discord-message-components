@@ -46,8 +46,8 @@ Role.args = {
 
 export const RoleColor = Template.bind({})
 RoleColor.args = {
+	...Role.args,
 	roleColor: '#0099ff',
-	type: 'role',
 }
 
 export const User = Template.bind({})
