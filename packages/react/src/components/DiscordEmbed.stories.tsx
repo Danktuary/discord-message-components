@@ -61,9 +61,20 @@ BorderColor.args = {
 	borderColor: '#0099ff',
 }
 
+export const EmbedTitle = Template.bind({})
+EmbedTitle.args = {
+	embedTitle: 'Embed title',
+}
+
+export const EmbedTitleAndUrl = Template.bind({})
+EmbedTitleAndUrl.args = {
+	...EmbedTitle.args,
+	url: 'https://i.imgur.com/0TeacfY.png',
+}
+
 export const Footer = Template.bind({})
 Footer.args = {
-	footer: 'Footer content',
+	footerSlot: 'Footer content',
 }
 
 export const FooterWithIcon = Template.bind({})
@@ -97,15 +108,4 @@ Thumbnail.args = {
 export const Timestamp = Template.bind({})
 Timestamp.args = {
 	timestamp: '01/01/2021',
-}
-
-export const Title = Template.bind({})
-Title.args = {
-	title: 'Embed title',
-}
-
-export const TitleAndUrl = Template.bind({})
-TitleAndUrl.args = {
-	...Title.args,
-	url: 'https://i.imgur.com/0TeacfY.png',
 }

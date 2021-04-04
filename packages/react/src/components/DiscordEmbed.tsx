@@ -8,11 +8,11 @@ export type DiscordEmbedProps = {
 	authorName?: string,
 	authorUrl?: string,
 	borderColor?: string,
+	embedTitle?: string,
 	image?: string,
 	footerIcon?: string,
 	thumbnail?: string,
 	timestamp?: Date | string,
-	title?: string,
 	url?: string,
 }
 
@@ -22,11 +22,11 @@ export default function DiscordEmbed({
 	authorUrl,
 	children,
 	borderColor,
+	embedTitle,
 	footerIcon,
 	image,
 	thumbnail,
 	timestamp,
-	title,
 	url,
 }: DiscordEmbedProps & PropsWithSlot): ReactElement {
 	const slots = {
@@ -76,10 +76,10 @@ export default function DiscordEmbed({
 			<div className="discord-embed-title">
 				{url
 					? <a href={url} target="_blank" rel="noopener noreferrer">
-						{title}
+						{embedTitle}
 					</a>
 					: <span>
-						{title}
+						{embedTitle}
 					</span>}
 			</div>
 		),
@@ -92,7 +92,7 @@ export default function DiscordEmbed({
 				<div className="discord-embed-content">
 					<div>
 						{authorName && content.author}
-						{title && content.title}
+						{embedTitle && content.title}
 						<div className="discord-embed-description">
 							{slots.default}
 						</div>
