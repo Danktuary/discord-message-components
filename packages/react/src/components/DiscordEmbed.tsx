@@ -1,21 +1,20 @@
-import React, { PropsWithChildren, ReactElement, isValidElement } from 'react'
+import React, { ReactElement, isValidElement } from 'react'
 import { util } from '@discord-message-components/core'
-import { elementsWithoutSlot, findSlot } from '../util'
+import { PropsWithSlot, elementsWithoutSlot, findSlot } from '../util'
 import '@discord-message-components/core/dist/styles/discord-embed.css'
 
-export type DiscordEmbedProps = PropsWithChildren<{
+export type DiscordEmbedProps = {
 	authorIcon?: string,
 	authorName?: string,
 	authorUrl?: string,
 	color?: string,
 	image?: string,
 	footerIcon?: string,
-	slot?: string,
 	thumbnail?: string,
 	timestamp?: Date | string,
 	title?: string,
 	url?: string,
-}>
+}
 
 export default function DiscordEmbed({
 	authorIcon,
@@ -29,7 +28,7 @@ export default function DiscordEmbed({
 	timestamp,
 	title,
 	url,
-}: DiscordEmbedProps): ReactElement {
+}: DiscordEmbedProps & PropsWithSlot): ReactElement {
 	const slots = {
 		'default': children,
 		fields: findSlot(children, 'fields'),

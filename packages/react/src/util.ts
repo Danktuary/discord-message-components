@@ -1,4 +1,6 @@
-import { Children, ReactElement, ReactNode } from 'react'
+import { Children, PropsWithChildren, ReactElement, ReactNode } from 'react'
+
+export type PropsWithSlot = PropsWithChildren<{ slot?: string }>
 
 export const elementsWithoutSlot = (elements: ReactNode | ReactNode[], name: string): ReactNode | ReactNode[] => {
 	return Children.map((elements as ReactElement[]), (element: ReactElement): ReactNode => {
