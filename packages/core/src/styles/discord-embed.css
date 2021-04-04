@@ -41,6 +41,16 @@
 	display: flex;
 }
 
+.discord-embed .discord-embed-thumbnail {
+	max-width: 80px;
+	max-height: 80px;
+	margin-left: 16px;
+	margin-top: 8px;
+	border-radius: 4px;
+	object-fit: contain;
+	object-position: top center;
+}
+
 .discord-embed .discord-embed-author {
 	color: #fff;
 	display: flex;
