@@ -41,17 +41,7 @@
 	display: flex;
 }
 
-.discord-embed .discord-embed-thumbnail {
-	max-width: 80px;
-	max-height: 80px;
-	margin-left: 16px;
-	margin-top: 8px;
-	border-radius: 4px;
-	object-fit: contain;
-	object-position: top center;
-}
-
-.discord-embed .discord-embed-author {
+.discord-embed .discord-embed-content .discord-embed-author {
 	color: #fff;
 	display: flex;
 	align-items: center;
@@ -59,46 +49,56 @@
 	margin-top: 8px;
 }
 
-.discord-light-theme .discord-embed .discord-embed-author {
+.discord-light-theme .discord-embed .discord-embed-content .discord-embed-author {
 	color: #4f545c;
 }
 
-.discord-embed .discord-embed-author a {
+.discord-embed .discord-embed-content .discord-embed-author a {
 	color: #fff;
 	font-weight: 500;
 }
 
-.discord-light-theme .discord-embed .discord-embed-author a {
+.discord-light-theme .discord-embed .discord-embed-content .discord-embed-author a {
 	color: #4f545c;
 }
 
-.discord-embed .discord-embed-author .discord-embed-author-icon {
+.discord-embed .discord-embed-content .discord-embed-author .discord-embed-author-icon {
 	width: 24px;
 	height: 24px;
 	margin-right: 8px;
 	border-radius: 50%;
 }
 
-.discord-embed .discord-embed-title {
+.discord-embed .discord-embed-content .discord-embed-title {
 	color: #fff;
 	font-size: 16px;
 	font-weight: 600;
 	margin-top: 8px;
 }
 
-.discord-embed .discord-embed-title a {
+.discord-embed .discord-embed-content .discord-embed-title a {
 	color: #00b0f4;
 	font-weight: 600;
 }
 
-.discord-embed .discord-embed-description {
+.discord-embed .discord-embed-content .discord-embed-description {
 	margin-top: 8px;
 }
 
-.discord-embed .discord-embed-image {
+.discord-embed .discord-embed-content .discord-embed-image {
 	max-width: 100%;
 	margin-top: 16px;
 	border-radius: 4px;
+}
+
+.discord-embed .discord-embed-content .discord-embed-thumbnail {
+	max-width: 80px;
+	max-height: 80px;
+	margin-left: 16px;
+	margin-top: 8px;
+	border-radius: 4px;
+	object-fit: contain;
+	object-position: top center;
 }
 
 .discord-embed .discord-embed-footer {
