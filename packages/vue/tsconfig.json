@@ -5,8 +5,8 @@
 		"types": ["vite/client"],
 	},
 	"include": [
-		"src/**/*.ts",
 		"src/**/*.d.ts",
+		"src/**/*.ts",
 		"src/**/*.tsx",
 		"src/**/*.vue"
 	],
