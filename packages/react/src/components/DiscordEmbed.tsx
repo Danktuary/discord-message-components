@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react'
+import React, { ReactElement, ReactNode, isValidElement } from 'react'
 import { util } from '@discord-message-components/core'
 import { elementsWithoutSlot, findSlot } from '../util'
 import '@discord-message-components/core/dist/styles/discord-embed.css'
@@ -33,7 +33,16 @@ export default function DiscordEmbed({
 }: DiscordEmbedProps): ReactElement {
 	const slots = {
 		'default': children,
+		fields: findSlot(children, 'fields'),
 		footer: findSlot(children, 'footer'),
+	}
+
+	if (slots.fields) {
+		if (!isValidElement(slots.fields)) {
+			throw new Error('Element with slot name "fields" should be a valid DiscordEmbedFields component.')
+		}
+
+		slots.default = elementsWithoutSlot(slots.default, 'fields')
 	}
 
 	if (slots.footer) slots.default = elementsWithoutSlot(slots.default, 'footer')
@@ -78,6 +87,7 @@ export default function DiscordEmbed({
 						<div className="discord-embed-description">
 							{slots.default}
 						</div>
+						{slots.fields}
 						{image && <img src={image} alt="" className="discord-embed-image" />}
 					</div>
 					{thumbnail && <img src={thumbnail} alt="" className="discord-embed-thumbnail" />}
