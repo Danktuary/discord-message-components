@@ -12,15 +12,20 @@ export default {
 			control: 'color',
 			defaultValue: '',
 		},
+		timestamp: {
+			control: 'date',
+			defaultValue: '',
+		},
 	},
 } as Meta
 
-const Template: Story<DiscordEmbedProps> = args => (
+const Template: Story<DiscordEmbedProps & { footer?: string }> = args => (
 	<DiscordMessages>
 		<DiscordMessage>
 			Hello World
 			<DiscordEmbed slot="embeds" {...args}>
 				Embed content
+				{args.footer && <span slot="footer">{args.footer}</span>}
 			</DiscordEmbed>
 		</DiscordMessage>
 	</DiscordMessages>
@@ -57,6 +62,30 @@ Color.args = {
 	color: '#0099ff',
 }
 
+export const Footer = Template.bind({})
+Footer.args = {
+	footer: 'Footer content',
+}
+
+export const FooterWithIcon = Template.bind({})
+FooterWithIcon.args = {
+	footer: 'Footer content',
+	footerIcon: 'https://i.imgur.com/0TeacfY.png',
+}
+
+export const FooterWithTimestamp = Template.bind({})
+FooterWithTimestamp.args = {
+	footer: 'Footer content',
+	timestamp: '01/01/2020',
+}
+
+export const FooterWithIconAndTimestamp = Template.bind({})
+FooterWithIconAndTimestamp.args = {
+	footer: 'Footer content',
+	footerIcon: 'https://i.imgur.com/0TeacfY.png',
+	timestamp: '01/01/2020',
+}
+
 export const Image = Template.bind({})
 Image.args = {
 	image: 'https://i.imgur.com/0TeacfY.png',
@@ -65,6 +94,11 @@ Image.args = {
 export const Thumbnail = Template.bind({})
 Thumbnail.args = {
 	thumbnail: 'https://i.imgur.com/0TeacfY.png',
+}
+
+export const Timestamp = Template.bind({})
+Timestamp.args = {
+	timestamp: '01/01/2020',
 }
 
 export const Title = Template.bind({})

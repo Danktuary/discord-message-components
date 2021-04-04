@@ -1,4 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react'
+import { util } from '@discord-message-components/core'
+import { elementsWithoutSlot, findSlot } from '../util'
 import '@discord-message-components/core/dist/styles/discord-embed.css'
 
 export type DiscordEmbedProps = {
@@ -8,8 +10,10 @@ export type DiscordEmbedProps = {
 	children?: ReactNode,
 	color?: string,
 	image?: string,
+	footerIcon?: string,
 	slot?: string,
 	thumbnail?: string,
+	timestamp?: Date | string,
 	title?: string,
 	url?: string,
 }
@@ -20,11 +24,20 @@ export default function DiscordEmbed({
 	authorUrl,
 	children,
 	color,
+	footerIcon,
 	image,
 	thumbnail,
+	timestamp,
 	title,
 	url,
 }: DiscordEmbedProps): ReactElement {
+	const slots = {
+		'default': children,
+		footer: findSlot(children, 'footer'),
+	}
+
+	if (slots.footer) slots.default = elementsWithoutSlot(slots.default, 'footer')
+
 	const content = {
 		author: (
 			<div className="discord-embed-author">
@@ -33,6 +46,16 @@ export default function DiscordEmbed({
 				{authorUrl
 					? <a href={authorUrl} target="_blank" rel="noopener noreferrer">{authorName}</a>
 					: <span>{authorName}</span>}
+			</div>
+		),
+		footer: (
+			<div className="discord-embed-footer">
+				{(slots.footer && footerIcon) && <img src={footerIcon} alt="" className="discord-embed-footer-icon" />}
+				<span>
+					{slots.footer}
+					{(slots.footer && timestamp) && <span className="discord-embed-footer-separator">&bull;</span>}
+					{timestamp && <span>{util.parseTimestamp(timestamp)}</span>}
+				</span>
 			</div>
 		),
 		title: (
@@ -53,12 +76,13 @@ export default function DiscordEmbed({
 						{authorName && content.author}
 						{title && content.title}
 						<div className="discord-embed-description">
-							{children}
+							{slots.default}
 						</div>
 						{image && <img src={image} alt="" className="discord-embed-image" />}
 					</div>
 					{thumbnail && <img src={thumbnail} alt="" className="discord-embed-thumbnail" />}
 				</div>
+				{(slots.footer || timestamp) && content.footer}
 			</div>
 		</div>
 	)
