@@ -1,1 +1,6 @@
+export { default as DiscordEmbed } from './components/DiscordEmbed.vue'
+export { default as DiscordEmbedField } from './components/DiscordEmbedField.vue'
+export { default as DiscordEmbedFields } from './components/DiscordEmbedFields.vue'
+export { default as DiscordMention } from './components/DiscordMention.vue'
+export { default as DiscordMessage } from './components/DiscordMessage.vue'
 export { default as DiscordMessages } from './components/DiscordMessages.vue'
