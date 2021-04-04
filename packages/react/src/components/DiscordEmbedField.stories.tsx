@@ -17,7 +17,7 @@ const Template: Story<DiscordEmbedFieldProps & { fieldValue?: string }> = args =
 			Hello World
 			<DiscordEmbed slot="embeds">
 				Embed content
-				{args.title
+				{args.fieldTitle
 					&& <DiscordEmbedFields slot="fields">
 						<DiscordEmbedField {...args}>{args.fieldValue}</DiscordEmbedField>
 						<DiscordEmbedField {...args}>{args.fieldValue}</DiscordEmbedField>
@@ -30,14 +30,14 @@ const Template: Story<DiscordEmbedFieldProps & { fieldValue?: string }> = args =
 
 export const Default = Template.bind({})
 
-export const FieldWithTitle = Template.bind({})
-FieldWithTitle.args = {
-	title: 'Field title',
-	fieldValue: 'Field value',
+export const Field = Template.bind({})
+Field.args = {
+	fieldTitle: 'Field title',
+	defaultSlot: 'Field value',
 }
 
-export const InlineFieldWithTitle = Template.bind({})
-InlineFieldWithTitle.args = {
-	...FieldWithTitle.args,
+export const InlineField = Template.bind({})
+InlineField.args = {
+	...Field.args,
 	inline: true,
 }
