@@ -1,12 +1,11 @@
-import React, { ReactElement, ReactNode } from 'react'
+import React, { PropsWithChildren, ReactElement } from 'react'
 import '@discord-message-components/core/dist/styles/discord-embed-field.css'
 
-export type DiscordEmbedFieldProps = {
-	children?: ReactNode,
+export type DiscordEmbedFieldProps = PropsWithChildren<{
 	inline?: boolean,
 	slot?: string,
 	title: string,
-}
+}>
 
 export default function DiscordEmbedField({ children, inline, title }: DiscordEmbedFieldProps): ReactElement {
 	let classes = 'discord-embed-field'

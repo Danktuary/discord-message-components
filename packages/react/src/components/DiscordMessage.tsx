@@ -1,18 +1,17 @@
-import React, { Fragment, ReactElement, ReactNode, isValidElement } from 'react'
+import React, { Fragment, PropsWithChildren, ReactElement, ReactNode, isValidElement } from 'react'
 import { avatars, util } from '@discord-message-components/core'
 import { elementsWithoutSlot, findSlot } from '../util'
 import AuthorInfo from './AuthorInfo'
 import '@discord-message-components/core/dist/styles/discord-message.css'
 
-export type DiscordMessageProps = {
+export type DiscordMessageProps = PropsWithChildren<{
 	author?: string,
 	avatar?: string,
 	bot?: boolean,
-	children?: ReactNode,
 	edited?: boolean,
 	roleColor?: string,
 	timestamp?: Date | string,
-}
+}>
 
 export default function DiscordMessage({
 	author = 'User',

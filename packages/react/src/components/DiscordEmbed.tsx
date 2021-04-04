@@ -1,13 +1,12 @@
-import React, { ReactElement, ReactNode, isValidElement } from 'react'
+import React, { PropsWithChildren, ReactElement, isValidElement } from 'react'
 import { util } from '@discord-message-components/core'
 import { elementsWithoutSlot, findSlot } from '../util'
 import '@discord-message-components/core/dist/styles/discord-embed.css'
 
-export type DiscordEmbedProps = {
+export type DiscordEmbedProps = PropsWithChildren<{
 	authorIcon?: string,
 	authorName?: string,
 	authorUrl?: string,
-	children?: ReactNode,
 	color?: string,
 	image?: string,
 	footerIcon?: string,
@@ -16,7 +15,7 @@ export type DiscordEmbedProps = {
 	timestamp?: Date | string,
 	title?: string,
 	url?: string,
-}
+}>
 
 export default function DiscordEmbed({
 	authorIcon,

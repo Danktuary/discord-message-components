@@ -1,11 +1,10 @@
-import React, { Children, cloneElement, ReactElement } from 'react'
+import React, { Children, cloneElement, PropsWithChildren, ReactElement } from 'react'
 import '@discord-message-components/core/dist/styles/discord-messages.css'
 
-export type DiscordMessagesProps = {
-	children: ReactElement,
+export type DiscordMessagesProps = PropsWithChildren<{
 	compactMode?: boolean,
 	lightTheme?: boolean,
-}
+}>
 
 export default function DiscordMessages({ children, compactMode, lightTheme }: DiscordMessagesProps): ReactElement {
 	let classes = 'discord-messages'
