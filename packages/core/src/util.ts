@@ -1,5 +1,7 @@
 import colorToRgba from 'color-rgba'
 
+export const defaultTimestamp = new Date()
+
 export const parseColorToRgba = (color?: string, alpha?: number): string | null => {
 	if (!color) return null
 	const [r, g, b, a] = colorToRgba(color) ?? []
@@ -11,5 +13,3 @@ export const parseTimestamp = (timestamp: Date | string): string => {
 	const [month, day, year] = [timestamp.getMonth() + 1, timestamp.getDate(), timestamp.getFullYear()]
 	return `${month.toString().padStart(2, '0')}/${day.toString().padStart(2, '0')}/${year}`
 }
-
-export const defaultTimestamp = parseTimestamp(new Date())
