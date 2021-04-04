@@ -84,3 +84,9 @@
 .discord-embed .discord-embed-description {
 	margin-top: 8px;
 }
+
+.discord-embed .discord-embed-image {
+	max-width: 100%;
+	margin-top: 16px;
+	border-radius: 4px;
+}
