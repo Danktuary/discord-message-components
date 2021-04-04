@@ -86,7 +86,7 @@ FooterWithIcon.args = {
 export const FooterWithTimestamp = Template.bind({})
 FooterWithTimestamp.args = {
 	...Footer.args,
-	timestamp: '01/01/2020',
+	timestamp: '01/01/2021',
 }
 
 export const FooterWithIconAndTimestamp = Template.bind({})
@@ -107,7 +107,7 @@ Thumbnail.args = {
 
 export const Timestamp = Template.bind({})
 Timestamp.args = {
-	timestamp: '01/01/2020',
+	timestamp: '01/01/2021',
 }
 
 export const Title = Template.bind({})
