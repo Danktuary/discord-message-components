@@ -26,12 +26,12 @@ const Template: Story = args => ({
 
 export const Default = Template.bind({})
 
-export const LightTheme = Template.bind({})
-LightTheme.args = {
-	lightTheme: true,
-}
-
 export const CompactMode = Template.bind({})
 CompactMode.args = {
 	compactMode: true,
+}
+
+export const LightTheme = Template.bind({})
+LightTheme.args = {
+	lightTheme: true,
 }
