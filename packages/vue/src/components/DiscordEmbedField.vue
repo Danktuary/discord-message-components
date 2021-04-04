@@ -1,6 +1,8 @@
 <template>
 	<div :class="{ 'discord-embed-field-inline': inline }" class="discord-embed-field">
-		<div class="discord-embed-field-title">{{ title }}</div>
+		<div class="discord-embed-field-title">
+			{{ title }}
+		</div>
 		<slot></slot>
 	</div>
 </template>

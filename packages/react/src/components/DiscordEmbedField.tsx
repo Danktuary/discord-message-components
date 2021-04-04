@@ -12,7 +12,9 @@ export default function DiscordEmbedField({ children, inline, title }: DiscordEm
 
 	return (
 		<div className={classes}>
-			<div className="discord-embed-field-title">{title}</div>
+			<div className="discord-embed-field-title">
+				{title}
+			</div>
 			{children}
 		</div>
 	)

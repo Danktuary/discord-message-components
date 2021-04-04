@@ -48,11 +48,14 @@ export default function DiscordEmbed({
 	const content = {
 		author: (
 			<div className="discord-embed-author">
-				{authorIcon
-					&& <img src={authorIcon} alt="" className="discord-embed-author-icon" />}
+				{authorIcon && <img src={authorIcon} alt="" className="discord-embed-author-icon" />}
 				{authorUrl
-					? <a href={authorUrl} target="_blank" rel="noopener noreferrer">{authorName}</a>
-					: <span>{authorName}</span>}
+					? <a href={authorUrl} target="_blank" rel="noopener noreferrer">
+						{authorName}
+					</a>
+					: <span>
+						{authorName}
+					</span>}
 			</div>
 		),
 		footer: (
@@ -60,16 +63,24 @@ export default function DiscordEmbed({
 				{(slots.footer && footerIcon) && <img src={footerIcon} alt="" className="discord-embed-footer-icon" />}
 				<span>
 					{slots.footer}
-					{(slots.footer && timestamp) && <span className="discord-embed-footer-separator">&bull;</span>}
-					{timestamp && <span>{util.parseTimestamp(timestamp)}</span>}
+					{(slots.footer && timestamp) && <span className="discord-embed-footer-separator">
+						&bull;
+					</span>}
+					{timestamp && <span>
+						{util.parseTimestamp(timestamp)}
+					</span>}
 				</span>
 			</div>
 		),
 		title: (
 			<div className="discord-embed-title">
 				{url
-					? <a href={url} target="_blank" rel="noopener noreferrer">{title}</a>
-					: <span>{title}</span>}
+					? <a href={url} target="_blank" rel="noopener noreferrer">
+						{title}
+					</a>
+					: <span>
+						{title}
+					</span>}
 			</div>
 		),
 	}
