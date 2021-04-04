@@ -11,7 +11,7 @@ import { util } from '@discord-message-components/core'
 export default defineComponent({
 	name: 'DiscordMention',
 	props: {
-		color: String,
+		roleColor: String,
 		highlight: Boolean,
 		type: {
 			type: String,
@@ -19,7 +19,7 @@ export default defineComponent({
 		},
 	},
 	setup(props) {
-		const { color, type } = toRefs(props)
+		const { roleColor: color, type } = toRefs(props)
 		const root = ref<HTMLSpanElement>()
 		const hovering = ref(false)
 		const setHoverColor = () => hovering.value = true
