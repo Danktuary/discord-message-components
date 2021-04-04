@@ -3,12 +3,12 @@ import { util } from '@discord-message-components/core'
 import '@discord-message-components/core/dist/styles/discord-mention.css'
 
 export type DiscordMentionProps = PropsWithChildren<{
-	color?: string,
 	highlight?: boolean,
+	roleColor?: string,
 	type?: string,
 }>
 
-export default function DiscordMention({ children, color, type = 'user' }: DiscordMentionProps): ReactElement {
+export default function DiscordMention({ children, roleColor: color, type = 'user' }: DiscordMentionProps): ReactElement {
 	const root = useRef<HTMLSpanElement>(null)
 	const [hovering, setHovering] = useState(false)
 	const setHoverColor = () => setHovering(true)
