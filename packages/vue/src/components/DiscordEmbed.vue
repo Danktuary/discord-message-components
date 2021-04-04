@@ -13,12 +13,12 @@
 							{{ author.name }}
 						</span>
 					</div>
-					<div v-if="title" class="discord-embed-title">
+					<div v-if="embedTitle" class="discord-embed-title">
 						<a v-if="url" :href="url" target="_blank" rel="noopener noreferrer">
-							{{ title }}
+							{{ embedTitle }}
 						</a>
 						<span v-else>
-							{{ title }}
+							{{ embedTitle }}
 						</span>
 					</div>
 					<div class="discord-embed-description">
@@ -56,11 +56,11 @@ export default defineComponent({
 		authorName: String,
 		authorUrl: String,
 		borderColor: String,
+		embedTitle: String,
 		footerIcon: String,
 		image: String,
 		thumbnail: String,
 		timestamp: [Date, String],
-		title: String,
 		url: String,
 	},
 	setup(props, { slots }) {
