@@ -29,7 +29,7 @@ const Template: Story = args => ({
 				Hello World
 				<discord-embed slot="embeds">
 					Embed content
-					<discord-embed-fields slot="fields" v-if="args.title">
+					<discord-embed-fields slot="fields" v-if="args.fieldTitle">
 						<discord-embed-field v-bind="args">{{ args.fieldValue }}</discord-embed-field>
 						<discord-embed-field v-bind="args">{{ args.fieldValue }}</discord-embed-field>
 						<discord-embed-field v-bind="args">{{ args.fieldValue }}</discord-embed-field>
@@ -42,14 +42,13 @@ const Template: Story = args => ({
 
 export const Default = Template.bind({})
 
-export const FieldWithTitle = Template.bind({})
-FieldWithTitle.args = {
-	title: 'Field title',
-	fieldValue: 'Field value',
+export const Field = Template.bind({})
+Field.args = {
+	fieldTitle: 'Field title',
 }
 
-export const InlineFieldWithTitle = Template.bind({})
-InlineFieldWithTitle.args = {
-	...FieldWithTitle.args,
+export const InlineField = Template.bind({})
+InlineField.args = {
+	...Field.args,
 	inline: true,
 }

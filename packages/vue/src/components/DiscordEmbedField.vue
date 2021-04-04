@@ -1,7 +1,7 @@
 <template>
 	<div :class="{ 'discord-embed-field-inline': inline }" class="discord-embed-field">
 		<div class="discord-embed-field-title">
-			{{ title }}
+			{{ fieldTitle }}
 		</div>
 		<slot></slot>
 	</div>
@@ -13,7 +13,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
 	name: 'DiscordEmbedField',
 	props: {
-		title: {
+		fieldTitle: {
 			type: String,
 			required: true,
 		},
