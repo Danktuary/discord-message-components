@@ -13,6 +13,14 @@
 							{{ author.name }}
 						</span>
 					</div>
+					<div v-if="title" class="discord-embed-title">
+						<a v-if="url" :href="url" target="_blank" rel="noopener noreferrer">
+							{{ title }}
+						</a>
+						<span v-else>
+							{{ title }}
+						</span>
+					</div>
 					<div class="discord-embed-description">
 						<slot></slot>
 					</div>
@@ -32,6 +40,8 @@ export default defineComponent({
 		authorName: String,
 		authorUrl: String,
 		color: String,
+		title: String,
+		url: String,
 	},
 	setup(props) {
 		const { authorIcon, authorName, authorUrl } = toRefs(props)
