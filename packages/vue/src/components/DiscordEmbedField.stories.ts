@@ -50,7 +50,6 @@ FieldWithTitle.args = {
 
 export const InlineFieldWithTitle = Template.bind({})
 InlineFieldWithTitle.args = {
+	...FieldWithTitle.args,
 	inline: true,
-	title: 'Field title',
-	fieldValue: 'Field value',
 }

@@ -40,21 +40,20 @@ AuthorName.args = {
 
 export const AuthorNameAndIcon = Template.bind({})
 AuthorNameAndIcon.args = {
-	authorName: 'Author name',
+	...AuthorName.args,
 	authorIcon: 'https://i.imgur.com/0TeacfY.png',
 }
 
 export const AuthorNameAndUrl = Template.bind({})
 AuthorNameAndUrl.args = {
-	authorName: 'Author name',
+	...AuthorName.args,
 	authorUrl: 'https://i.imgur.com/0TeacfY.png',
 }
 
 export const AuthorNameIconAndUrl = Template.bind({})
 AuthorNameIconAndUrl.args = {
-	authorName: 'Author name',
-	authorIcon: 'https://i.imgur.com/0TeacfY.png',
-	authorUrl: 'https://i.imgur.com/0TeacfY.png',
+	...AuthorNameAndIcon.args,
+	...AuthorNameAndUrl.args,
 }
 
 export const Color = Template.bind({})
@@ -69,21 +68,20 @@ Footer.args = {
 
 export const FooterWithIcon = Template.bind({})
 FooterWithIcon.args = {
-	footer: 'Footer content',
+	...Footer.args,
 	footerIcon: 'https://i.imgur.com/0TeacfY.png',
 }
 
 export const FooterWithTimestamp = Template.bind({})
 FooterWithTimestamp.args = {
-	footer: 'Footer content',
+	...Footer.args,
 	timestamp: '01/01/2020',
 }
 
 export const FooterWithIconAndTimestamp = Template.bind({})
 FooterWithIconAndTimestamp.args = {
-	footer: 'Footer content',
-	footerIcon: 'https://i.imgur.com/0TeacfY.png',
-	timestamp: '01/01/2020',
+	...FooterWithIcon.args,
+	...FooterWithTimestamp.args,
 }
 
 export const Image = Template.bind({})
@@ -108,6 +106,6 @@ Title.args = {
 
 export const TitleAndUrl = Template.bind({})
 TitleAndUrl.args = {
-	title: 'Embed title',
+	...Title.args,
 	url: 'https://i.imgur.com/0TeacfY.png',
 }
