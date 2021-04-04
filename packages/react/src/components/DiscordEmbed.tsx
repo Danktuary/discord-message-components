@@ -8,9 +8,19 @@ export type DiscordEmbedProps = {
 	children?: ReactNode,
 	color?: string,
 	slot?: string,
+	title?: string,
+	url?: string,
 }
 
-export default function DiscordEmbed({ authorIcon, authorName, authorUrl, children, color }: DiscordEmbedProps): ReactElement {
+export default function DiscordEmbed({
+	authorIcon,
+	authorName,
+	authorUrl,
+	children,
+	color,
+	title,
+	url,
+}: DiscordEmbedProps): ReactElement {
 	const content = {
 		author: (
 			<div className="discord-embed-author">
@@ -19,6 +29,13 @@ export default function DiscordEmbed({ authorIcon, authorName, authorUrl, childr
 				{authorUrl
 					? <a href={authorUrl} target="_blank" rel="noopener noreferrer">{authorName}</a>
 					: <span>{authorName}</span>}
+			</div>
+		),
+		title: (
+			<div className="discord-embed-title">
+				{url
+					? <a href={url} target="_blank" rel="noopener noreferrer">{title}</a>
+					: <span>{title}</span>}
 			</div>
 		),
 	}
@@ -30,6 +47,7 @@ export default function DiscordEmbed({ authorIcon, authorName, authorUrl, childr
 				<div className="discord-embed-content">
 					<div>
 						{authorName && content.author}
+						{title && content.title}
 						<div className="discord-embed-description">
 							{children}
 						</div>
