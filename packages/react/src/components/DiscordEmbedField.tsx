@@ -3,7 +3,6 @@ import '@discord-message-components/core/dist/styles/discord-embed-field.css'
 
 export type DiscordEmbedFieldProps = PropsWithChildren<{
 	inline?: boolean,
-	slot?: string,
 	title: string,
 }>
 
