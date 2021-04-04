@@ -7,6 +7,13 @@ export default {
 	title: 'DiscordEmbed',
 	component: DiscordEmbed,
 	argTypes: {
+		'default': {
+			control: 'text',
+			defaultValue: 'Embed content',
+		},
+		footer: {
+			control: 'text',
+		},
 		borderColor: {
 			control: 'color',
 			defaultValue: '',
@@ -34,7 +41,7 @@ const Template: Story = args => ({
 			<discord-message>
 				Hello World
 				<discord-embed slot="embeds" v-bind="args">
-					Embed content
+					{{ args.default }}
 					<template #footer v-if="args.footer">{{ args.footer }}</template>
 				</discord-embed>
 			</discord-message>

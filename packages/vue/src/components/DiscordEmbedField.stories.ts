@@ -8,6 +8,12 @@ import DiscordMessages from './DiscordMessages.vue'
 export default {
 	title: 'DiscordEmbedField',
 	component: DiscordEmbedField,
+	argTypes: {
+		'default': {
+			control: 'text',
+			defaultValue: 'Field value',
+		},
+	},
 } as Meta
 
 const Template: Story = args => ({
@@ -30,9 +36,9 @@ const Template: Story = args => ({
 				<discord-embed slot="embeds">
 					Embed content
 					<discord-embed-fields slot="fields" v-if="args.fieldTitle">
-						<discord-embed-field v-bind="args">{{ args.fieldValue }}</discord-embed-field>
-						<discord-embed-field v-bind="args">{{ args.fieldValue }}</discord-embed-field>
-						<discord-embed-field v-bind="args">{{ args.fieldValue }}</discord-embed-field>
+						<discord-embed-field v-bind="args">{{ args.default }}</discord-embed-field>
+						<discord-embed-field v-bind="args">{{ args.default }}</discord-embed-field>
+						<discord-embed-field v-bind="args">{{ args.default }}</discord-embed-field>
 					</discord-embed-fields>
 				</discord-embed>
 			</discord-message>

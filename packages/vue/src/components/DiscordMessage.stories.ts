@@ -7,6 +7,10 @@ export default {
 	title: 'DiscordMessage',
 	component: DiscordMessage,
 	argTypes: {
+		'default': {
+			control: 'text',
+			defaultValue: 'Hello World',
+		},
 		roleColor: {
 			control: 'color',
 			defaultValue: '',
@@ -30,7 +34,7 @@ const Template: Story = args => ({
 	},
 	template: `
 		<discord-messages>
-			<discord-message v-bind="args">Hello World</discord-message>
+			<discord-message v-bind="args">{{ args.default }}</discord-message>
 		</discord-messages>
 	`,
 })
