@@ -2,8 +2,8 @@ import React, { Children, PropsWithChildren, ReactElement, cloneElement } from '
 import '@discord-message-components/core/dist/styles/discord-messages.css'
 
 export type DiscordMessagesProps = PropsWithChildren<{
-	compactMode?: boolean,
-	lightTheme?: boolean,
+	compactMode?: boolean
+	lightTheme?: boolean
 }>
 
 export default function DiscordMessages({ children, compactMode, lightTheme }: DiscordMessagesProps): ReactElement {

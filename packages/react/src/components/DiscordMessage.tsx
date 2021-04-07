@@ -5,12 +5,12 @@ import AuthorInfo from './AuthorInfo'
 import '@discord-message-components/core/dist/styles/discord-message.css'
 
 export type DiscordMessageProps = PropsWithChildren<{
-	author?: string,
-	avatar?: string,
-	bot?: boolean,
-	edited?: boolean,
-	roleColor?: string,
-	timestamp?: Date | string,
+	author?: string
+	avatar?: string
+	bot?: boolean
+	edited?: boolean
+	roleColor?: string
+	timestamp?: Date | string
 }>
 
 export default function DiscordMessage({

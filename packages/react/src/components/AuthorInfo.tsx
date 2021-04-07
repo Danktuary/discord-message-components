@@ -2,9 +2,9 @@ import React, { ReactElement } from 'react'
 import '@discord-message-components/core/dist/styles/discord-author-info.css'
 
 type AuthorInfoProps = {
-	author?: string,
-	bot?: boolean,
-	roleColor?: string,
+	author?: string
+	bot?: boolean
+	roleColor?: string
 }
 
 export default function AuthorInfo({ author, bot, roleColor }: AuthorInfoProps): ReactElement {

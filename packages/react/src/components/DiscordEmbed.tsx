@@ -4,16 +4,16 @@ import { PropsWithSlot, elementsWithoutSlot, findSlot } from '../util'
 import '@discord-message-components/core/dist/styles/discord-embed.css'
 
 export type DiscordEmbedProps = {
-	authorIcon?: string,
-	authorName?: string,
-	authorUrl?: string,
-	borderColor?: string,
-	embedTitle?: string,
-	image?: string,
-	footerIcon?: string,
-	thumbnail?: string,
-	timestamp?: Date | string,
-	url?: string,
+	authorIcon?: string
+	authorName?: string
+	authorUrl?: string
+	borderColor?: string
+	embedTitle?: string
+	image?: string
+	footerIcon?: string
+	thumbnail?: string
+	timestamp?: Date | string
+	url?: string
 }
 
 export default function DiscordEmbed({
