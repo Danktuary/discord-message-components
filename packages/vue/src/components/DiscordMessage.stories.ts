@@ -13,7 +13,6 @@ export default {
 		},
 		roleColor: {
 			control: 'color',
-			defaultValue: '',
 		},
 		timestamp: {
 			control: 'date',

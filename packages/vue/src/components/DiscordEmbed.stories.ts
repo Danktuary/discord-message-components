@@ -16,7 +16,6 @@ export default {
 		},
 		borderColor: {
 			control: 'color',
-			defaultValue: '',
 		},
 		timestamp: {
 			control: 'date',
