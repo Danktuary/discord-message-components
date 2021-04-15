@@ -10,7 +10,6 @@ export default {
 	argTypes: {
 		roleColor: {
 			control: 'color',
-			defaultValue: '',
 		},
 		type: {
 			control: {
