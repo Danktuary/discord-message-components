@@ -1,6 +1,8 @@
-import React, { Fragment, PropsWithChildren, ReactElement, ReactNode, isValidElement } from 'react'
-import { avatars, util } from '@discord-message-components/core'
+import React, { Fragment, PropsWithChildren, ReactElement, ReactNode, isValidElement, useContext } from 'react'
+import { util } from '@discord-message-components/core'
 import { elementsWithoutSlot, findSlot } from '../util'
+import DiscordDefaultOptions, { DiscordMessageOptions, Profile } from '../context/DiscordDefaultOptions'
+import DiscordOptionsContext from '../context/DiscordOptionsContext'
 import AuthorInfo from './AuthorInfo'
 import '@discord-message-components/core/dist/styles/discord-message.css'
 
@@ -9,20 +11,32 @@ export type DiscordMessageProps = PropsWithChildren<{
 	avatar?: string
 	bot?: boolean
 	edited?: boolean
+	profile?: string
 	roleColor?: string
 	timestamp?: Date | string
 }>
 
 export default function DiscordMessage({
-	author = 'User',
+	author,
 	avatar,
 	bot,
 	children,
 	compactMode,
 	edited,
+	profile: profileKey,
 	roleColor,
 	timestamp = util.defaultTimestamp,
 }: DiscordMessageProps & { compactMode?: boolean }): ReactElement {
+	const options: DiscordMessageOptions = useContext(DiscordOptionsContext) ?? DiscordDefaultOptions
+
+	const profile: Profile = options.profiles?.[profileKey] ?? {}
+	const user: Profile = {
+		author: !author && profile?.author ? profile.author : author || 'User',
+		avatar: util.resolveImage(options.avatars, avatar || profile?.avatar),
+		bot: bot ?? profile?.bot,
+		roleColor: roleColor || profile?.roleColor,
+	}
+
 	const highlightMessage = (elements: ReactNode): boolean => {
 		if (!Array.isArray(elements)) return false
 		return (elements as ReactElement[]).some(({ props = {} }) => props?.highlight && props?.type !== 'channel')
@@ -32,10 +46,6 @@ export default function DiscordMessage({
 	if (children && highlightMessage(children)) messageClasses += ' discord-mention-highlight'
 
 	const messageTimestamp = util.parseTimestamp(timestamp)
-
-	const resolveAvatar = (userAvatar: string) => avatars[userAvatar] || userAvatar
-
-	const user = { author, avatar: resolveAvatar(avatar ?? 'blue'), bot, roleColor }
 
 	const slots = {
 		'default': children,

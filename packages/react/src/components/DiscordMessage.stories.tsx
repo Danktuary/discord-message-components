@@ -3,6 +3,8 @@ import { Meta, Story } from '@storybook/react'
 import { util } from '@discord-message-components/core'
 import DiscordMessage, { DiscordMessageProps } from './DiscordMessage'
 import DiscordMessages from './DiscordMessages'
+import DiscordOptionsContext from '../context/DiscordOptionsContext'
+import DiscordDefaultOptions from '../context/DiscordDefaultOptions'
 
 export default {
 	title: 'DiscordMessage',
@@ -22,10 +24,35 @@ export default {
 	},
 } as Meta
 
+const discordOptions = {
+	...DiscordDefaultOptions,
+	profiles: {
+		sanc: {
+			author: 'Sanc',
+			avatar: 'https://i.imgur.com/0TeacfY.png',
+			roleColor: '#0099ff',
+		},
+		bot: {
+			author: 'Bot',
+			avatar: 'green',
+			roleColor: '#3eaf7c',
+			bot: true,
+		},
+	},
+}
+
 const Template: Story<DiscordMessageProps & { defaultSlot?: string }> = args => (
 	<DiscordMessages>
 		<DiscordMessage {...args}>{args.defaultSlot}</DiscordMessage>
 	</DiscordMessages>
+)
+
+const TemplateWithContext: Story<DiscordMessageProps & { defaultSlot?: string }> = args => (
+	<DiscordOptionsContext.Provider value={discordOptions}>
+		<DiscordMessages>
+			<DiscordMessage {...args}>{args.defaultSlot}</DiscordMessage>
+		</DiscordMessages>
+	</DiscordOptionsContext.Provider>
 )
 
 export const Default = Template.bind({})
@@ -48,6 +75,11 @@ Bot.args = {
 export const Edited = Template.bind({})
 Edited.args = {
 	edited: true,
+}
+
+export const Profile = TemplateWithContext.bind({})
+Profile.args = {
+	profile: 'sanc',
 }
 
 export const RoleColor = Template.bind({})
