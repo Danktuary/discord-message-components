@@ -13,3 +13,7 @@ export const parseTimestamp = (timestamp: Date | string): string => {
 	const [month, day, year] = [timestamp.getMonth() + 1, timestamp.getDate(), timestamp.getFullYear()]
 	return `${month.toString().padStart(2, '0')}/${day.toString().padStart(2, '0')}/${year}`
 }
+
+export const resolveImage = (images: { [key: string]: string }, image: string): string => {
+	return images[image] ?? image ?? images?.default
+}
