@@ -54,6 +54,11 @@ Role.args = {
 	type: 'role',
 }
 
+export const Profile = Template.bind({})
+Profile.args = {
+	profile: 'sanc',
+}
+
 export const RoleColor = Template.bind({})
 RoleColor.args = {
 	...Role.args,

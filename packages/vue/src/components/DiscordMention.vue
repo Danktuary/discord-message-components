@@ -5,22 +5,27 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onBeforeUnmount, onMounted, ref, toRefs } from 'vue'
+import { computed, defineComponent, getCurrentInstance, onBeforeUnmount, onMounted, ref, toRefs } from 'vue'
 import { util } from '@discord-message-components/core'
 
 export default defineComponent({
 	name: 'DiscordMention',
 	props: {
-		roleColor: String,
 		highlight: Boolean,
+		profile: String,
+		roleColor: String,
 		type: {
 			type: String,
 			'default': 'user',
 		},
 	},
 	setup(props) {
-		const { roleColor: color, type } = toRefs(props)
+		const { $discordOptions: options } = getCurrentInstance()?.appContext.config.globalProperties
 		const root = ref<HTMLSpanElement>()
+		const { profile: profileKey, roleColor, type } = toRefs(props)
+		const profile = ref(options.profiles?.[profileKey?.value] ?? {})
+		const color = ref(roleColor?.value ?? profile?.value?.roleColor)
+
 		const hovering = ref(false)
 		const setHoverColor = () => hovering.value = true
 		const resetHoverColor = () => hovering.value = false
@@ -52,9 +57,11 @@ export default defineComponent({
 		})
 
 		const defaultContent = computed(() => {
-			return type.value === 'channel'
-				? type.value
-				: type.value.charAt(0).toUpperCase() + type.value.slice(1)
+			return type.value === 'user' && profile?.value?.author
+				? profile?.value.author
+				: type.value === 'channel'
+					? type.value
+					: type.value.charAt(0).toUpperCase() + type.value.slice(1)
 		})
 
 		const mentionCharacter = computed(() => type.value === 'channel' ? '#' : '@')
