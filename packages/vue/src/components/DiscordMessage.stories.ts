@@ -60,6 +60,11 @@ Edited.args = {
 	edited: true,
 }
 
+export const Profile = Template.bind({})
+Profile.args = {
+	profile: 'sanc',
+}
+
 export const RoleColor = Template.bind({})
 RoleColor.args = {
 	roleColor: '#0099ff',

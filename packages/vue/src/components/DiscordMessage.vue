@@ -26,8 +26,9 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, inject, reactive, toRefs } from 'vue'
-import { avatars, util } from '@discord-message-components/core'
+import { computed, defineComponent, getCurrentInstance, inject, toRefs } from 'vue'
+import { util } from '@discord-message-components/core'
+import { Profile } from '../index'
 import AuthorInfo from './AuthorInfo.vue'
 
 export default defineComponent({
@@ -36,13 +37,11 @@ export default defineComponent({
 		AuthorInfo,
 	},
 	props: {
-		author: {
-			type: String,
-			'default': 'User',
-		},
+		author: String,
 		avatar: String,
 		bot: Boolean,
 		edited: Boolean,
+		profile: String,
 		roleColor: String,
 		timestamp: {
 			type: [Date, String],
@@ -50,18 +49,23 @@ export default defineComponent({
 		},
 	},
 	setup(props, { slots }) {
-		const { author, avatar, bot, roleColor, timestamp } = toRefs(props)
+		const { $discordOptions: options } = getCurrentInstance()?.appContext.config.globalProperties
+		const { author, avatar, bot, profile: profileKey, roleColor, timestamp } = toRefs(props)
 		const compactMode = inject('compactMode')
+
+		const profile: Profile = options.profiles?.[profileKey?.value] ?? {}
+		const user: Profile = {
+			author: !author?.value && profile?.author ? profile.author : author?.value || 'User',
+			avatar: util.resolveImage(options.avatars, avatar?.value || profile?.avatar),
+			bot: bot.value ?? profile?.bot,
+			roleColor: roleColor?.value || profile?.roleColor,
+		}
 
 		const highlightMessage = computed(() => {
 			return slots.default?.().some(slot => slot?.props?.highlight && slot?.props?.type !== 'channel')
 		})
 
 		const messageTimestamp = computed(() => util.parseTimestamp(timestamp.value))
-
-		const resolveAvatar = (userAvatar: string) => avatars[userAvatar] || userAvatar
-
-		const user = reactive({ author, avatar: resolveAvatar(avatar?.value ?? 'blue'), bot, roleColor })
 
 		return {
 			compactMode,
