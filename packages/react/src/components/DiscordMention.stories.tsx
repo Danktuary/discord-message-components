@@ -1,5 +1,7 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
+import DiscordOptionsContext from '../context/DiscordOptionsContext'
+import DiscordDefaultOptions from '../context/DiscordDefaultOptions'
 import DiscordMention, { DiscordMentionProps } from './DiscordMention'
 import DiscordMessage from './DiscordMessage'
 import DiscordMessages from './DiscordMessages'
@@ -8,6 +10,9 @@ export default {
 	title: 'DiscordMention',
 	component: DiscordMention,
 	argTypes: {
+		defaultSlot: {
+			control: 'text',
+		},
 		roleColor: {
 			control: 'color',
 		},
@@ -20,10 +25,36 @@ export default {
 	},
 } as Meta
 
-const Template: Story<DiscordMentionProps> = args => (
+
+const discordOptions = {
+	...DiscordDefaultOptions,
+	profiles: {
+		sanc: {
+			author: 'Sanc',
+			avatar: 'https://i.imgur.com/0TeacfY.png',
+			roleColor: '#0099ff',
+		},
+		bot: {
+			author: 'Bot',
+			avatar: 'green',
+			roleColor: '#3eaf7c',
+			bot: true,
+		},
+	},
+}
+
+const Template: Story<DiscordMentionProps & { defaultSlot?: string }> = args => (
 	<DiscordMessages>
-		<DiscordMessage>Hello <DiscordMention {...args} /></DiscordMessage>
+		<DiscordMessage>Hello <DiscordMention {...args}>{args.defaultSlot}</DiscordMention></DiscordMessage>
 	</DiscordMessages>
+)
+
+const TemplateWithContext: Story<DiscordMentionProps & { defaultSlot?: string }> = args => (
+	<DiscordOptionsContext.Provider value={discordOptions}>
+		<DiscordMessages>
+			<DiscordMessage>Hello <DiscordMention {...args}>{args.defaultSlot}</DiscordMention></DiscordMessage>
+		</DiscordMessages>
+	</DiscordOptionsContext.Provider>
 )
 
 export const Default = Template.bind({})
@@ -36,6 +67,11 @@ Highlight.args = {
 export const Channel = Template.bind({})
 Channel.args = {
 	type: 'channel',
+}
+
+export const Profile = TemplateWithContext.bind({})
+Profile.args = {
+	profile: 'sanc',
 }
 
 export const Role = Template.bind({})

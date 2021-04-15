@@ -1,15 +1,22 @@
-import React, { PropsWithChildren, ReactElement, useEffect, useRef, useState } from 'react'
+import React, { PropsWithChildren, ReactElement, useContext, useEffect, useRef, useState } from 'react'
 import { util } from '@discord-message-components/core'
+import DiscordDefaultOptions, { DiscordMessageOptions, Profile } from '../context/DiscordDefaultOptions'
+import DiscordOptionsContext from '../context/DiscordOptionsContext'
 import '@discord-message-components/core/dist/styles/discord-mention.css'
 
 export type DiscordMentionProps = PropsWithChildren<{
 	highlight?: boolean
+	profile?: string
 	roleColor?: string
 	type?: string
 }>
 
-export default function DiscordMention({ children, roleColor: color, type = 'user' }: DiscordMentionProps): ReactElement {
+export default function DiscordMention({ children, roleColor, profile: profileKey, type = 'user' }: DiscordMentionProps): ReactElement {
+	const options: DiscordMessageOptions = useContext(DiscordOptionsContext) ?? DiscordDefaultOptions
 	const root = useRef<HTMLSpanElement>(null)
+	const profile: Profile = options.profiles?.[profileKey] ?? {}
+	const color = roleColor ?? profile?.roleColor
+
 	const [hovering, setHovering] = useState(false)
 	const setHoverColor = () => setHovering(true)
 	const resetHoverColor = () => setHovering(false)
@@ -35,11 +42,13 @@ export default function DiscordMention({ children, roleColor: color, type = 'use
 		}
 	}, [root, color, type])
 
-	const defaultContent = children || (
-		type === 'channel'
-			? type
-			: type.charAt(0).toUpperCase() + type.slice(1)
-	)
+	const defaultContent = children && children !== ''
+		? children
+		: type === 'user' && profile?.author
+			? profile.author
+			: type === 'channel'
+				? type
+				: type.charAt(0).toUpperCase() + type.slice(1)
 
 	const mentionCharacter = type === 'channel' ? '#' : '@'
 
