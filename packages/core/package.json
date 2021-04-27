@@ -18,6 +18,7 @@
     "vite": "^2.0.1"
   },
   "dependencies": {
-    "color-rgba": "^2.2.3"
+    "color-rgba": "^2.2.3",
+    "discord-markdown": "^2.4.2"
   }
 }

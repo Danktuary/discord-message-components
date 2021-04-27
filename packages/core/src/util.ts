@@ -2,6 +2,8 @@ import colorToRgba from 'color-rgba'
 
 export const defaultTimestamp = new Date()
 
+export { default as markdownParser } from 'discord-markdown'
+
 export const parseColorToRgba = (color?: string, alpha?: number): string | null => {
 	if (!color) return null
 	const [r, g, b, a] = colorToRgba(color) ?? []
