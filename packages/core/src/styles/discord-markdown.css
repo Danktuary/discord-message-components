@@ -1,0 +1,76 @@
+.discord-markdown .discord-markdown-content > pre {
+	max-width: 90%;
+	margin: 0.4em 0 0;
+	white-space: pre-wrap;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+.discord-markdown .discord-markdown-content > pre > code {
+	color: #b9bbbe;
+	background-color: #2F3135;
+	display: block;
+	font-size: 1em;
+	padding: 0.5em;
+	border: 1px solid #202225;
+	border-radius: 4px;
+}
+
+.discord-light-theme .discord-markdown .discord-markdown-content > pre > code {
+	color: #4f5660;
+	background-color: #F2F3F9;
+	border-color: #e3e5e8;
+}
+
+.discord-markdown .discord-markdown-content > code {
+	background-color: #2f3136;
+	font-size: 0.95em;
+	padding: 3px;
+	border-radius: 3px;
+	white-space: pre-wrap;
+}
+
+.discord-light-theme .discord-markdown .discord-markdown-content > code {
+	background-color: #f2f3f5;
+}
+
+.discord-markdown .discord-markdown-content .d-spoiler {
+	color: transparent;
+	background-color: #202225;
+	border-radius: 3px;
+	transition: all 0.1s ease-in-out;
+}
+
+.discord-light-theme .discord-markdown .discord-markdown-content .d-spoiler {
+	background-color: #b9bbbe;
+}
+
+.discord-markdown .discord-markdown-content .d-spoiler:hover {
+	color: inherit;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.discord-light-theme .discord-markdown .discord-markdown-content .d-spoiler:hover {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.discord-markdown .discord-markdown-content > blockquote {
+	position: relative;
+	margin: 0;
+	padding: 0 8px 0 16px;
+}
+
+.discord-markdown .discord-markdown-content > blockquote::before {
+	content: '';
+	background-color: #4f545c;
+	width: 4px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	border-radius: 4px;
+}
+
+.discord-light-theme .discord-markdown .discord-markdown-content > blockquote::before {
+	background-color: #c7ccd1;
+}
