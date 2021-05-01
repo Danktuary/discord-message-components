@@ -39,10 +39,12 @@ const Template: Story = args => ({
 		<discord-messages>
 			<discord-message>
 				Hello World
-				<discord-embed slot="embeds" v-bind="args">
-					{{ args.default }}
-					<template #footer v-if="args.footer">{{ args.footer }}</template>
-				</discord-embed>
+				<template #embeds>
+					<discord-embed v-bind="args">
+						{{ args.default }}
+						<template #footer v-if="args.footer">{{ args.footer }}</template>
+					</discord-embed>
+				</template>
 			</discord-message>
 		</discord-messages>
 	`,

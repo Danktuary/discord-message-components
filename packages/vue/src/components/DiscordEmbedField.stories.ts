@@ -33,14 +33,18 @@ const Template: Story = args => ({
 		<discord-messages>
 			<discord-message>
 				Hello World
-				<discord-embed slot="embeds">
-					Embed content
-					<discord-embed-fields slot="fields" v-if="args.fieldTitle">
-						<discord-embed-field v-bind="args">{{ args.default }}</discord-embed-field>
-						<discord-embed-field v-bind="args">{{ args.default }}</discord-embed-field>
-						<discord-embed-field v-bind="args">{{ args.default }}</discord-embed-field>
-					</discord-embed-fields>
-				</discord-embed>
+				<template #embeds>
+					<discord-embed>
+						Embed content
+						<template #fields>
+							<discord-embed-fields v-if="args.fieldTitle">
+								<discord-embed-field v-bind="args">{{ args.default }}</discord-embed-field>
+								<discord-embed-field v-bind="args">{{ args.default }}</discord-embed-field>
+								<discord-embed-field v-bind="args">{{ args.default }}</discord-embed-field>
+							</discord-embed-fields>
+						</template>
+					</discord-embed>
+				</template>
 			</discord-message>
 		</discord-messages>
 	`,
