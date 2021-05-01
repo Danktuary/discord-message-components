@@ -1,6 +1,7 @@
 .discord-message {
 	color: #dcddde;
 	display: flex;
+	flex-direction: column;
 	font-size: 0.9em;
 	margin: 1em 0;
 	padding: 0.25em 1em 0;
@@ -75,6 +76,7 @@
 }
 
 .discord-message .discord-message-content {
+	display: flex;
 	width: 100%;
 	line-height: 160%;
 	font-weight: normal;
@@ -99,6 +101,7 @@
 
 .discord-message .discord-message-body {
 	position: relative;
+	width: 100%;
 }
 
 .discord-compact-mode .discord-message-body {
