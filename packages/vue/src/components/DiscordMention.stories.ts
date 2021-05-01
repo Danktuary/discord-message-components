@@ -49,14 +49,14 @@ Channel.args = {
 	type: 'channel',
 }
 
-export const Role = Template.bind({})
-Role.args = {
-	type: 'role',
-}
-
 export const Profile = Template.bind({})
 Profile.args = {
 	profile: 'sanc',
+}
+
+export const Role = Template.bind({})
+Role.args = {
+	type: 'role',
 }
 
 export const RoleColor = Template.bind({})
