@@ -1,17 +1,17 @@
 <template>
 	<div :class="{ 'discord-mention-highlight': highlightMessage }" class="discord-message">
-		<div class="discord-author-avatar">
-			<img :src="user.avatar" alt="" />
-		</div>
 		<div class="discord-message-content">
-			<div v-if="!compactMode">
-				<author-info :author="user.author" :bot="user.bot" :role-color="user.roleColor" />
-				<span class="discord-message-timestamp">
-					{{ messageTimestamp }}
-				</span>
+			<div class="discord-author-avatar">
+				<img :src="user.avatar" alt="" />
 			</div>
 			<div class="discord-message-body">
-				<template v-if="compactMode">
+				<div v-if="!compactMode">
+					<author-info :author="user.author" :bot="user.bot" :role-color="user.roleColor" />
+					<span class="discord-message-timestamp">
+						{{ messageTimestamp }}
+					</span>
+				</div>
+				<template v-else>
 					<span class="discord-message-timestamp">
 						{{ messageTimestamp }}
 					</span>
@@ -19,8 +19,8 @@
 				</template>
 				<slot></slot>
 				<span v-if="edited" class="discord-message-edited">(edited)</span>
+				<slot name="embeds"></slot>
 			</div>
-			<slot name="embeds"></slot>
 		</div>
 	</div>
 </template>
