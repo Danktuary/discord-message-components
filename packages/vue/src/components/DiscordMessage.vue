@@ -1,5 +1,12 @@
 <template>
-	<div :class="{ 'discord-mention-highlight': highlightMessage }" class="discord-message">
+	<div
+		class="discord-message"
+		:class="{
+			'discord-ephemeral-highlight': ephemeralMessage,
+			'discord-mention-highlight': highlightMessage && !ephemeralMessage,
+		}"
+	>
+		<slot name="interactions"></slot>
 		<div class="discord-message-content">
 			<div class="discord-author-avatar">
 				<img :src="user.avatar" alt="" />
@@ -20,6 +27,9 @@
 				<slot></slot>
 				<span v-if="edited" class="discord-message-edited">(edited)</span>
 				<slot name="embeds"></slot>
+				<div v-if="ephemeralMessage" class="discord-message-ephemeral-notice">
+					Only you can see this
+				</div>
 			</div>
 		</div>
 	</div>
@@ -61,14 +71,20 @@ export default defineComponent({
 			roleColor: roleColor?.value || profile?.roleColor,
 		}
 
+		const ephemeralMessage = computed(() => {
+			return slots.interactions?.().some(slot => slot?.props?.ephemeral)
+		})
+
 		const highlightMessage = computed(() => {
 			return slots.default?.().some(slot => slot?.props?.highlight && slot?.props?.type !== 'channel')
+				|| slots.interactions?.().some(slot => slot?.props?.highlight)
 		})
 
 		const messageTimestamp = computed(() => util.parseTimestamp(timestamp.value))
 
 		return {
 			compactMode,
+			ephemeralMessage,
 			highlightMessage,
 			messageTimestamp,
 			user,
