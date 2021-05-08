@@ -62,6 +62,7 @@ Command.args = {
 
 export const Ephemeral = Template.bind({})
 Ephemeral.args = {
+	...Command.args,
 	ephemeral: true,
 }
 
