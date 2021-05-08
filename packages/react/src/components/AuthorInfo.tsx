@@ -7,9 +7,12 @@ type AuthorInfoProps = {
 	roleColor?: string
 }
 
-export default function AuthorInfo({ author, bot, roleColor }: AuthorInfoProps): ReactElement {
+export default function AuthorInfo({ author, bot, className, roleColor }: AuthorInfoProps & { className?: string }): ReactElement {
+	let authorInfoClasses = 'discord-author-info'
+	if (className) authorInfoClasses += ` ${className}`
+
 	return (
-		<span className="discord-author-info">
+		<span className={authorInfoClasses}>
 			<span style={{ color: roleColor }} className="discord-author-username">
 				{author}
 			</span>

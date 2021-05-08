@@ -37,19 +37,12 @@ export default function DiscordMessage({
 		roleColor: roleColor || profile?.roleColor,
 	}
 
-	const highlightMessage = (elements: ReactNode): boolean => {
-		if (!Array.isArray(elements)) return false
-		return (elements as ReactElement[]).some(({ props = {} }) => props?.highlight && props?.type !== 'channel')
-	}
-
-	let messageClasses = 'discord-message'
-	if (children && highlightMessage(children)) messageClasses += ' discord-mention-highlight'
-
 	const messageTimestamp = util.parseTimestamp(timestamp)
 
 	const slots = {
 		'default': children,
 		embeds: findSlot(children, 'embeds'),
+		interactions: findSlot(children, 'interactions'),
 	}
 
 	if (slots.embeds) {
@@ -60,8 +53,27 @@ export default function DiscordMessage({
 		slots.default = elementsWithoutSlot(slots.default, 'embeds')
 	}
 
+	if (slots.interactions) {
+		if (!isValidElement(slots.interactions)) {
+			throw new Error('Element with slot name "interactions" should be a valid DiscordInteraction component.')
+		}
+
+		slots.default = elementsWithoutSlot(slots.default, 'interactions')
+	}
+
+	const ephemeralMessage = (slots?.interactions as ReactElement)?.props?.ephemeral
+
+	const highlightMessage = (slots?.default as ReactElement[])
+		?.some?.(({ props = {} }) => props?.highlight && props?.type !== 'channel')
+		|| (slots?.interactions as ReactElement)?.props?.highlight
+
+	let messageClasses = 'discord-message'
+	if (ephemeralMessage) messageClasses += ' discord-ephemeral-highlight'
+	if (highlightMessage && !ephemeralMessage) messageClasses += ' discord-mention-highlight'
+
 	return (
 		<div className={messageClasses}>
+			{slots.interactions}
 			<div className="discord-message-content">
 				<div className="discord-author-avatar">
 					<img src={user.avatar} alt="" />
@@ -83,6 +95,9 @@ export default function DiscordMessage({
 					{slots.default}
 					{edited && <span className="discord-message-edited">(edited)</span>}
 					{slots.embeds}
+					{ephemeralMessage && <div className="discord-message-ephemeral-notice">
+						Only you can see this
+					</div>}
 				</div>
 			</div>
 		</div>
