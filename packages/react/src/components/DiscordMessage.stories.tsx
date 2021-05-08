@@ -42,12 +42,6 @@ const discordOptions = {
 }
 
 const Template: Story<DiscordMessageProps & { defaultSlot?: string }> = args => (
-	<DiscordMessages>
-		<DiscordMessage {...args}>{args.defaultSlot}</DiscordMessage>
-	</DiscordMessages>
-)
-
-const TemplateWithContext: Story<DiscordMessageProps & { defaultSlot?: string }> = args => (
 	<DiscordOptionsContext.Provider value={discordOptions}>
 		<DiscordMessages>
 			<DiscordMessage {...args}>{args.defaultSlot}</DiscordMessage>
@@ -77,7 +71,7 @@ Edited.args = {
 	edited: true,
 }
 
-export const Profile = TemplateWithContext.bind({})
+export const Profile = Template.bind({})
 Profile.args = {
 	profile: 'sanc',
 }

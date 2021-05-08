@@ -44,12 +44,6 @@ const discordOptions = {
 }
 
 const Template: Story<DiscordMentionProps & { defaultSlot?: string }> = args => (
-	<DiscordMessages>
-		<DiscordMessage>Hello <DiscordMention {...args}>{args.defaultSlot}</DiscordMention></DiscordMessage>
-	</DiscordMessages>
-)
-
-const TemplateWithContext: Story<DiscordMentionProps & { defaultSlot?: string }> = args => (
 	<DiscordOptionsContext.Provider value={discordOptions}>
 		<DiscordMessages>
 			<DiscordMessage>Hello <DiscordMention {...args}>{args.defaultSlot}</DiscordMention></DiscordMessage>
@@ -69,7 +63,7 @@ Channel.args = {
 	type: 'channel',
 }
 
-export const Profile = TemplateWithContext.bind({})
+export const Profile = Template.bind({})
 Profile.args = {
 	profile: 'sanc',
 }
