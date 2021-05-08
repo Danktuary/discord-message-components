@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
-import DiscordOptionsContext from '../context/DiscordOptionsContext'
 import DiscordDefaultOptions from '../context/DiscordDefaultOptions'
+import DiscordOptionsContext from '../context/DiscordOptionsContext'
 import DiscordMention, { DiscordMentionProps } from './DiscordMention'
 import DiscordMessage from './DiscordMessage'
 import DiscordMessages from './DiscordMessages'

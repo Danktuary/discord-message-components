@@ -1,10 +1,10 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
 import { util } from '@discord-message-components/core'
+import DiscordDefaultOptions from '../context/DiscordDefaultOptions'
+import DiscordOptionsContext from '../context/DiscordOptionsContext'
 import DiscordMessage, { DiscordMessageProps } from './DiscordMessage'
 import DiscordMessages from './DiscordMessages'
-import DiscordOptionsContext from '../context/DiscordOptionsContext'
-import DiscordDefaultOptions from '../context/DiscordDefaultOptions'
 
 export default {
 	title: 'DiscordMessage',

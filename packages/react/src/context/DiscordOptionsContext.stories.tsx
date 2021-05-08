@@ -1,10 +1,9 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
-import DiscordDefaultOptions from './DiscordDefaultOptions'
 import DiscordMessage from '../components/DiscordMessage'
 import DiscordMessages from '../components/DiscordMessages'
+import DiscordDefaultOptions from './DiscordDefaultOptions'
 import DiscordOptionsContext from './DiscordOptionsContext'
-
 
 const discordOptions = {
 	...DiscordDefaultOptions,
