@@ -46,6 +46,7 @@ export default function DiscordMessage({
 		'default': children,
 		embeds: findSlot(children, 'embeds'),
 		interactions: findSlot(children, 'interactions'),
+		reactions: findSlot(children, 'reactions'),
 	}
 
 	if (slots.embeds) {
@@ -62,6 +63,14 @@ export default function DiscordMessage({
 		}
 
 		slots.default = elementsWithoutSlot(slots.default, 'interactions')
+	}
+
+	if (slots.reactions) {
+		if (!isValidElement(slots.reactions)) {
+			throw new Error('Element with slot name "reactions" should be a valid DiscordEmbed component.')
+		}
+
+		slots.default = elementsWithoutSlot(slots.default, 'reactions')
 	}
 
 	const ephemeralMessage = (slots?.interactions as ReactElement)?.props?.ephemeral
@@ -101,6 +110,7 @@ export default function DiscordMessage({
 					{ephemeralMessage && <div className="discord-message-ephemeral-notice">
 						Only you can see this
 					</div>}
+					{slots.reactions}
 				</div>
 			</div>
 		</div>
