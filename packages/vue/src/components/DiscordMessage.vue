@@ -30,6 +30,7 @@
 				<div v-if="ephemeralMessage" class="discord-message-ephemeral-notice">
 					Only you can see this
 				</div>
+				<slot name="reactions"></slot>
 			</div>
 		</div>
 	</div>
