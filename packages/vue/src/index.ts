@@ -19,14 +19,14 @@ export type Profile = {
 
 export type DiscordMessageOptions = {
 	avatars: Avatars
-	defaultMode: 'comfy' | 'compact'
+	defaultMode: 'cozy' | 'compact'
 	defaultTheme: 'dark' | 'light'
 	profiles: { [key: string]: Profile | undefined }
 }
 
 const defaultOptions = {
 	avatars: discordAvatars,
-	defaultMode: 'comfy',
+	defaultMode: 'cozy',
 	defaultTheme: 'dark',
 	profiles: {},
 }
