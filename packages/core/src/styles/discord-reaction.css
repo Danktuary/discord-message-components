@@ -1,0 +1,36 @@
+.discord-reactions .discord-reaction {
+	color: #72767d;
+	background-color: rgba(255, 255, 255, 0.05);
+	display: inline-flex;
+	align-items: center;
+	padding: 0 0.4em;
+	border-radius: 4px;
+	margin-right: 2px;
+	margin-bottom: 2px;
+}
+
+.discord-light-theme .discord-reactions .discord-reaction {
+	background-color: rgba(0, 0, 0, 0.08);
+}
+
+.discord-reactions .discord-reaction:hover {
+	color: #dcddde;
+}
+
+.discord-light-theme .discord-reactions .discord-reaction:hover {
+	color: #2e3338;
+}
+
+.discord-reactions .discord-reaction.discord-reaction-active {
+	color: #7289da;
+	background-color: rgba(114, 137, 218, 0.3);
+}
+
+.discord-reactions .discord-reaction .discord-reaction-emoji {
+	width: 16px;
+	height: 16px;
+}
+
+.discord-reactions .discord-reaction .discord-reaction-count {
+	margin-left: 6px;
+}
