@@ -33,7 +33,10 @@ export default defineComponent({
 	props: {
 		author: String,
 		avatar: String,
-		bot: Boolean,
+		bot: {
+			type: Boolean,
+			'default': null,
+		},
 		command: Boolean,
 		edited: Boolean,
 		ephemeral: Boolean,
