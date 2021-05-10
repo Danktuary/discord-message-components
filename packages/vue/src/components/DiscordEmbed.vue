@@ -72,7 +72,7 @@ export default defineComponent({
 			url: authorUrl?.value,
 		}))
 
-		const embedTimestamp = computed(() => timestamp?.value ? util.parseTimestamp(timestamp.value) : null)
+		const embedTimestamp = computed(() => timestamp?.value ? util.parseTimestamp({ timestamp: timestamp.value }) : null)
 		const showFooter = computed(() => slots.footer || embedTimestamp.value)
 		const showFooterIcon = computed(() => slots.footer && footerIcon?.value)
 		const showFooterSeparator = computed(() => slots.footer && embedTimestamp.value)

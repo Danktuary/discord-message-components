@@ -80,7 +80,12 @@ export default defineComponent({
 				|| slots.interactions?.().some(slot => slot?.props?.highlight)
 		})
 
-		const messageTimestamp = computed(() => util.parseTimestamp(timestamp.value))
+		const messageTimestamp = computed(() => {
+			return util.parseTimestamp({
+				timestamp: timestamp.value,
+				format: compactMode ? 'compact' : 'cozy',
+			})
+		})
 
 		return {
 			compactMode,
