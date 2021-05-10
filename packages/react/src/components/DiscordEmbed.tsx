@@ -67,7 +67,7 @@ export default function DiscordEmbed({
 						&bull;
 					</span>}
 					{timestamp && <span>
-						{util.parseTimestamp(timestamp)}
+						{util.parseTimestamp({ timestamp })}
 					</span>}
 				</span>
 			</div>

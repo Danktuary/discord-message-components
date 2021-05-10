@@ -37,7 +37,10 @@ export default function DiscordMessage({
 		roleColor: roleColor || profile?.roleColor,
 	}
 
-	const messageTimestamp = util.parseTimestamp(timestamp)
+	const messageTimestamp = util.parseTimestamp({
+		timestamp,
+		format: compactMode ? 'compact' : 'cozy',
+	})
 
 	const slots = {
 		'default': children,
