@@ -115,6 +115,16 @@
 	color: #99aab5;
 }
 
+
+.discord-compact-mode .discord-message .discord-message-content .discord-message-timestamp {
+	display: inline-block;
+	min-width: 48px;
+	font-size: 11px;
+	margin-left: 0;
+	margin-right: 3px;
+	text-align: right;
+}
+
 .discord-compact-mode.discord-light-theme .discord-message .discord-message-content .discord-message-timestamp {
 	color: #d1d9de;
 }
