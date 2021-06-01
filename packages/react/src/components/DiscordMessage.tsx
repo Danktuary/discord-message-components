@@ -44,9 +44,18 @@ export default function DiscordMessage({
 
 	const slots = {
 		'default': children,
+		actions: findSlot(children, 'actions'),
 		embeds: findSlot(children, 'embeds'),
 		interactions: findSlot(children, 'interactions'),
 		reactions: findSlot(children, 'reactions'),
+	}
+
+	if (slots.actions) {
+		if (!isValidElement(slots.actions)) {
+			throw new Error('Element with slot name "actions" should be a valid DiscordButtons component.')
+		}
+
+		slots.default = elementsWithoutSlot(slots.default, 'actions')
 	}
 
 	if (slots.embeds) {
@@ -107,6 +116,7 @@ export default function DiscordMessage({
 					{slots.default}
 					{edited && <span className="discord-message-edited">(edited)</span>}
 					{slots.embeds}
+					{slots.actions}
 					{ephemeralMessage && <div className="discord-message-ephemeral-notice">
 						Only you can see this
 					</div>}
