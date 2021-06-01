@@ -14,7 +14,7 @@ export type DiscordMentionProps = PropsWithChildren<{
 export default function DiscordMention({ children, roleColor, profile: profileKey, type = 'user' }: DiscordMentionProps): ReactElement {
 	const options: DiscordMessageOptions = useContext(DiscordOptionsContext) ?? DiscordDefaultOptions
 	const root = useRef<HTMLSpanElement>(null)
-	const profile: Profile = options.profiles?.[profileKey] ?? {}
+	const profile: Profile = !profileKey ? {} : options.profiles?.[profileKey] ?? {}
 	const color = roleColor ?? profile?.roleColor
 
 	const [hovering, setHovering] = useState(false)

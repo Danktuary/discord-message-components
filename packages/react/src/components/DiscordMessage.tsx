@@ -29,7 +29,7 @@ export default function DiscordMessage({
 }: DiscordMessageProps & { compactMode?: boolean }): ReactElement {
 	const options: DiscordMessageOptions = useContext(DiscordOptionsContext) ?? DiscordDefaultOptions
 
-	const profile: Profile = options.profiles?.[profileKey] ?? {}
+	const profile: Profile = !profileKey ? {} : options.profiles?.[profileKey] ?? {}
 	const user: Profile = {
 		author: !author && profile?.author ? profile.author : author || 'User',
 		avatar: util.resolveImage(options.avatars, avatar || profile?.avatar),
