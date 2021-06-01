@@ -10,7 +10,8 @@
     ".": {
       "import": "./dist/react.es.js",
       "require": "./dist/react.umd.js"
-    }
+    },
+    "./styles": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",
