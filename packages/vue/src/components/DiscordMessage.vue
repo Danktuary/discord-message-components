@@ -27,6 +27,7 @@
 				<slot></slot>
 				<span v-if="edited" class="discord-message-edited">(edited)</span>
 				<slot name="embeds"></slot>
+				<slot name="actions"></slot>
 				<div v-if="ephemeralMessage" class="discord-message-ephemeral-notice">
 					Only you can see this
 				</div>
