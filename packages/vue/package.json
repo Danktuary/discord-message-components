@@ -10,7 +10,8 @@
     ".": {
       "import": "./dist/vue.es.js",
       "require": "./dist/vue.umd.js"
-    }
+    },
+    "./styles": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",
