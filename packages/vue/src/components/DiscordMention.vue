@@ -1,5 +1,5 @@
 <template>
-	<span ref="root" :style="colorStyle" class="discord-mention">
+	<span ref="root" class="discord-mention" :style="colorStyle">
 		{{ mentionCharacter }}<slot>{{ defaultContent }}</slot>
 	</span>
 </template>

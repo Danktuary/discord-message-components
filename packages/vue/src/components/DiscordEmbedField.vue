@@ -1,5 +1,5 @@
 <template>
-	<div :class="{ 'discord-embed-field-inline': inline }" class="discord-embed-field">
+	<div class="discord-embed-field" :class="{ 'discord-embed-field-inline': inline }">
 		<div class="discord-embed-field-title">
 			{{ fieldTitle }}
 		</div>
@@ -7,7 +7,7 @@
 	</div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({

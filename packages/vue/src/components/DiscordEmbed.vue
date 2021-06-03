@@ -1,11 +1,11 @@
 <template>
 	<div class="discord-embed">
-		<div :style="{ 'background-color': borderColor }" class="discord-embed-left-border"></div>
+		<div class="discord-embed-left-border" :style="{ 'background-color': borderColor }"></div>
 		<div class="discord-embed-container">
 			<div class="discord-embed-content">
 				<div>
 					<div v-if="author.name" class="discord-embed-author">
-						<img v-if="author.icon" :src="author.icon" alt="" class="discord-embed-author-icon" />
+						<img v-if="author.icon" class="discord-embed-author-icon" :src="author.icon" alt="" />
 						<a v-if="author.url" :href="author.url" target="_blank" rel="noopener noreferrer">
 							{{ author.name }}
 						</a>
@@ -25,12 +25,12 @@
 						<slot></slot>
 					</div>
 					<slot name="fields"></slot>
-					<img v-if="image" :src="image" alt="" class="discord-embed-image" />
+					<img v-if="image" class="discord-embed-image" :src="image" alt="" />
 				</div>
-				<img v-if="thumbnail" :src="thumbnail" alt="" class="discord-embed-thumbnail" />
+				<img v-if="thumbnail" class="discord-embed-thumbnail" :src="thumbnail" alt="" />
 			</div>
 			<div v-if="showFooter" class="discord-embed-footer">
-				<img v-if="showFooterIcon" :src="footerIcon" alt="" class="discord-embed-footer-icon" />
+				<img v-if="showFooterIcon" class="discord-embed-footer-icon" :src="footerIcon" alt="" />
 				<span>
 					<slot name="footer"></slot>
 					<span v-if="showFooterSeparator" class="discord-embed-footer-separator">
@@ -45,7 +45,7 @@
 	</div>
 </template>
 
-<script>
+<script lang="ts">
 import { computed, defineComponent, toRefs } from 'vue'
 import { util } from '@discord-message-components/core'
 

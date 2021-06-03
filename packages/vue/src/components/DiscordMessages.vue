@@ -1,5 +1,8 @@
 <template>
-	<div class="discord-messages" :class="{ 'discord-compact-mode': layout.compact, 'discord-light-theme': layout.light }">
+	<div
+		class="discord-messages"
+		:class="{ 'discord-compact-mode': layout.compact, 'discord-light-theme': layout.light }"
+	>
 		<slot></slot>
 	</div>
 </template>

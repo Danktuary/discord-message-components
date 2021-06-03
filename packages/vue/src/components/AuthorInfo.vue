@@ -1,6 +1,6 @@
 <template>
 	<span class="discord-author-info">
-		<span :style="{ color: roleColor }" class="discord-author-username">
+		<span class="discord-author-username" :style="{ color: roleColor }">
 			{{ author }}
 		</span>
 		<span v-if="bot" class="discord-author-bot-tag">
