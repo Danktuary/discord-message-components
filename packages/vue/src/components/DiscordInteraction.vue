@@ -21,9 +21,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, getCurrentInstance, toRefs } from 'vue'
+import { defineComponent, toRefs } from 'vue'
 import { util } from '@discord-message-components/core'
-import { Profile } from '../index'
+import { Profile, resolveOptions } from '../index'
 import AuthorInfo from './AuthorInfo.vue'
 
 export default defineComponent({
@@ -45,7 +45,7 @@ export default defineComponent({
 		roleColor: String,
 	},
 	setup(props) {
-		const { $discordOptions: options } = getCurrentInstance()?.appContext.config.globalProperties
+		const options = resolveOptions()
 		const { author, avatar, bot, profile: profileKey, roleColor } = toRefs(props)
 
 		const profile: Profile = !profileKey?.value ? {} : options.profiles?.[profileKey?.value] ?? {}

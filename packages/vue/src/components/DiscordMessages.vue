@@ -5,7 +5,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, getCurrentInstance, provide, toRefs } from 'vue'
+import { defineComponent, provide, toRefs } from 'vue'
+import { resolveOptions } from '../index'
 
 export default defineComponent({
 	name: 'DiscordMessages',
@@ -20,8 +21,8 @@ export default defineComponent({
 		},
 	},
 	setup(props) {
+		const options = resolveOptions()
 		const { compactMode, lightTheme } = toRefs(props)
-		const { $discordOptions: options } = getCurrentInstance()?.appContext.config.globalProperties
 
 		const layout = {
 			compact: compactMode?.value === true || (options.defaultMode === 'compact' && compactMode?.value !== false),

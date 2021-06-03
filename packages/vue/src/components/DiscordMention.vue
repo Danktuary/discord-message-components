@@ -7,6 +7,7 @@
 <script lang="ts">
 import { computed, defineComponent, getCurrentInstance, onBeforeUnmount, onMounted, ref, toRefs } from 'vue'
 import { util } from '@discord-message-components/core'
+import { resolveOptions } from '../index'
 
 export default defineComponent({
 	name: 'DiscordMention',
@@ -20,7 +21,7 @@ export default defineComponent({
 		},
 	},
 	setup(props) {
-		const { $discordOptions: options } = getCurrentInstance()?.appContext.config.globalProperties
+		const options = resolveOptions()
 		const root = ref<HTMLSpanElement>()
 		const { profile: profileKey, roleColor, type } = toRefs(props)
 		const profile = ref(!profileKey?.value ? {} : options.profiles?.[profileKey?.value] ?? {})

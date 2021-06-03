@@ -38,9 +38,9 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, getCurrentInstance, inject, toRefs } from 'vue'
+import { computed, defineComponent, inject, toRefs } from 'vue'
 import { util } from '@discord-message-components/core'
-import { Profile } from '../index'
+import { Profile, resolveOptions } from '../index'
 import AuthorInfo from './AuthorInfo.vue'
 
 export default defineComponent({
@@ -61,7 +61,7 @@ export default defineComponent({
 		},
 	},
 	setup(props, { slots }) {
-		const { $discordOptions: options } = getCurrentInstance()?.appContext.config.globalProperties
+		const options = resolveOptions()
 		const { author, avatar, bot, profile: profileKey, roleColor, timestamp } = toRefs(props)
 		const compactMode = inject('compactMode')
 

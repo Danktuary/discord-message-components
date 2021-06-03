@@ -1,4 +1,4 @@
-import { App } from 'vue'
+import { App, getCurrentInstance } from 'vue'
 import { avatars as discordAvatars } from '@discord-message-components/core'
 
 export type Avatars = {
@@ -42,6 +42,10 @@ export const install = (app: App, options: DiscordMessageOptions): void => {
 			'default': defaultOptions.avatars[avatars.default] ?? avatars.default,
 		},
 	} as DiscordMessageOptions
+}
+
+export const resolveOptions = (): DiscordMessageOptions => {
+	return getCurrentInstance()?.appContext.config.globalProperties?.$discordOptions ?? defaultOptions
 }
 
 export { default as DiscordButton } from './components/DiscordButton.vue'
