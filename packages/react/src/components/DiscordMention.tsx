@@ -53,7 +53,7 @@ export default function DiscordMention({ children, roleColor, profile: profileKe
 	const mentionCharacter = type === 'channel' ? '#' : '@'
 
 	return (
-		<span ref={root} style={colorStyle} className="discord-mention">
+		<span ref={root} className="discord-mention" style={colorStyle}>
 			{mentionCharacter}{defaultContent}
 		</span>
 	)

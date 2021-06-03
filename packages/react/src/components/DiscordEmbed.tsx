@@ -48,19 +48,20 @@ export default function DiscordEmbed({
 	const content = {
 		author: (
 			<div className="discord-embed-author">
-				{authorIcon && <img src={authorIcon} alt="" className="discord-embed-author-icon" />}
+				{authorIcon && <img className="discord-embed-author-icon" src={authorIcon} alt="" />}
 				{authorUrl
 					? <a href={authorUrl} target="_blank" rel="noopener noreferrer">
 						{authorName}
 					</a>
 					: <span>
 						{authorName}
-					</span>}
+					</span>
+				}
 			</div>
 		),
 		footer: (
 			<div className="discord-embed-footer">
-				{(slots.footer && footerIcon) && <img src={footerIcon} alt="" className="discord-embed-footer-icon" />}
+				{(slots.footer && footerIcon) && <img className="discord-embed-footer-icon" src={footerIcon} alt="" />}
 				<span>
 					{slots.footer}
 					{(slots.footer && timestamp) && <span className="discord-embed-footer-separator">
@@ -80,14 +81,15 @@ export default function DiscordEmbed({
 					</a>
 					: <span>
 						{embedTitle}
-					</span>}
+					</span>
+				}
 			</div>
 		),
 	}
 
 	return (
 		<div className="discord-embed">
-			<div style={{ backgroundColor: borderColor }} className="discord-embed-left-border"></div>
+			<div className="discord-embed-left-border" style={{ backgroundColor: borderColor }}></div>
 			<div className="discord-embed-container">
 				<div className="discord-embed-content">
 					<div>
@@ -97,9 +99,9 @@ export default function DiscordEmbed({
 							{slots.default}
 						</div>
 						{slots.fields}
-						{image && <img src={image} alt="" className="discord-embed-image" />}
+						{image && <img className="discord-embed-image" src={image} alt="" />}
 					</div>
-					{thumbnail && <img src={thumbnail} alt="" className="discord-embed-thumbnail" />}
+					{thumbnail && <img className="discord-embed-thumbnail" src={thumbnail} alt="" />}
 				</div>
 				{(slots.footer || timestamp) && content.footer}
 			</div>

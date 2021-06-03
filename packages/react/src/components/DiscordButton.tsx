@@ -14,10 +14,10 @@ export default function DiscordButton({ children, disabled, image, type = 'prima
 	return type === 'link' && url && !disabled
 		? (
 			<a
+				className="discord-button discord-button-link"
 				href={url}
 				target="_blank"
 				rel="noopener noreferrer"
-				className="discord-button discord-button-link"
 			>
 				{image && <img className="discord-button-emoji" src={image} alt="" />}
 				{children}

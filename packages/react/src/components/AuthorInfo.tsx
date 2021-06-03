@@ -13,7 +13,7 @@ export default function AuthorInfo({ author, bot, className, roleColor }: Author
 
 	return (
 		<span className={authorInfoClasses}>
-			<span style={{ color: roleColor }} className="discord-author-username">
+			<span className="discord-author-username" style={{ color: roleColor }}>
 				{author}
 			</span>
 			{bot && <span className="discord-author-bot-tag">

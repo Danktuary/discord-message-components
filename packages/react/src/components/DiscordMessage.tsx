@@ -112,7 +112,8 @@ export default function DiscordMessage({
 								{messageTimestamp}
 							</span>
 							<AuthorInfo author={user.author} bot={user.bot} roleColor={user.roleColor} />
-						</Fragment>}
+						</Fragment>
+					}
 					{slots.default}
 					{edited && <span className="discord-message-edited">(edited)</span>}
 					{slots.embeds}
