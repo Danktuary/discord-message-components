@@ -24,8 +24,8 @@ export type DiscordMessageOptions = {
 	profiles: { [key: string]: Profile | undefined }
 }
 
-const defaultOptions = {
-	avatars: discordAvatars,
+export const defaultOptions: DiscordMessageOptions = {
+	avatars: { ...discordAvatars, 'default': discordAvatars.blue },
 	defaultMode: 'cozy',
 	defaultTheme: 'dark',
 	profiles: {},
@@ -39,7 +39,7 @@ export const install = (app: App, options: DiscordMessageOptions): void => {
 		...options,
 		avatars: {
 			...avatars,
-			'default': defaultOptions.avatars[avatars.default] ?? avatars.default ?? defaultOptions?.avatars?.blue,
+			'default': defaultOptions.avatars[avatars.default] ?? avatars.default,
 		},
 	} as DiscordMessageOptions
 }
