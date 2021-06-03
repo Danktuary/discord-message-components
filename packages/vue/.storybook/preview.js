@@ -1,5 +1,5 @@
 import { app } from '@storybook/vue3'
-import DiscordMessageComponents from '../src/index'
+import { install as DiscordMessageComponents } from '../src/index'
 
 app.use(DiscordMessageComponents, {
 	profiles: {
