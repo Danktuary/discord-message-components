@@ -1,7 +1,4 @@
 import colorToRgba from 'color-rgba'
-
-export const defaultTimestamp = new Date()
-
 export { default as markdownParser } from 'discord-markdown'
 
 export const parseColorToRgba = (color?: string, alpha?: number): string | null => {
@@ -14,6 +11,8 @@ export type TimestampOptions = {
 	timestamp: Date | string
 	format: 'compact' | 'cozy'
 }
+
+export const defaultTimestamp = new Date()
 
 export const parseTimestamp = ({ timestamp, format = 'cozy' }: TimestampOptions): string => {
 	if (!(timestamp instanceof Date)) timestamp = new Date(timestamp)
