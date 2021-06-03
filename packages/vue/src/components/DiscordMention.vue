@@ -23,7 +23,7 @@ export default defineComponent({
 		const { $discordOptions: options } = getCurrentInstance()?.appContext.config.globalProperties
 		const root = ref<HTMLSpanElement>()
 		const { profile: profileKey, roleColor, type } = toRefs(props)
-		const profile = ref(options.profiles?.[profileKey?.value] ?? {})
+		const profile = ref(!profileKey?.value ? {} : options.profiles?.[profileKey?.value] ?? {})
 		const color = ref(roleColor?.value ?? profile?.value?.roleColor)
 
 		const hovering = ref(false)

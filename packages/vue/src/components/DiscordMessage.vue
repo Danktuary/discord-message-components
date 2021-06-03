@@ -65,7 +65,7 @@ export default defineComponent({
 		const { author, avatar, bot, profile: profileKey, roleColor, timestamp } = toRefs(props)
 		const compactMode = inject('compactMode')
 
-		const profile: Profile = options.profiles?.[profileKey?.value] ?? {}
+		const profile: Profile = !profileKey?.value ? {} : options.profiles?.[profileKey?.value] ?? {}
 		const user: Profile = {
 			author: !author?.value && profile?.author ? profile.author : author?.value || 'User',
 			avatar: util.resolveImage(options.avatars, avatar?.value || profile?.avatar),

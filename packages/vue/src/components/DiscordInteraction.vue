@@ -48,7 +48,7 @@ export default defineComponent({
 		const { $discordOptions: options } = getCurrentInstance()?.appContext.config.globalProperties
 		const { author, avatar, bot, profile: profileKey, roleColor } = toRefs(props)
 
-		const profile: Profile = options.profiles?.[profileKey?.value] ?? {}
+		const profile: Profile = !profileKey?.value ? {} : options.profiles?.[profileKey?.value] ?? {}
 		const user: Profile = {
 			author: !author?.value && profile?.author ? profile.author : author?.value || 'User',
 			avatar: util.resolveImage(options.avatars, avatar?.value || profile?.avatar),
