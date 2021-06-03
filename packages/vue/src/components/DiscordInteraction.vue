@@ -23,7 +23,7 @@
 <script lang="ts">
 import { defineComponent, toRefs } from 'vue'
 import { util } from '@discord-message-components/core'
-import { Profile, resolveOptions } from '../index'
+import { Profile, resolveOptions } from '../options'
 import AuthorInfo from './AuthorInfo.vue'
 
 export default defineComponent({

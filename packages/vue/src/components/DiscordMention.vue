@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, getCurrentInstance, onBeforeUnmount, onMounted, ref, toRefs } from 'vue'
+import { computed, defineComponent, onBeforeUnmount, onMounted, ref, toRefs } from 'vue'
 import { util } from '@discord-message-components/core'
-import { resolveOptions } from '../index'
+import { resolveOptions } from '../options'
 
 export default defineComponent({
 	name: 'DiscordMention',

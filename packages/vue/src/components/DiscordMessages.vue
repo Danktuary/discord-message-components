@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent, provide, toRefs } from 'vue'
-import { resolveOptions } from '../index'
+import { resolveOptions } from '../options'
 
 export default defineComponent({
 	name: 'DiscordMessages',
