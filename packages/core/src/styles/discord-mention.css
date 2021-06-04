@@ -1,0 +1,12 @@
+.discord-message .discord-mention {
+	color: #dee0fc;
+	background-color: rgba(88, 101, 242, 0.3);
+	font-weight: 500;
+	padding: 0 2px;
+	border-radius: 3px;
+	transition: background-color 50ms ease-out, color 50ms ease-out;
+}
+
+.discord-message .discord-mention:hover {
+	background-color: #5865f2;
+}

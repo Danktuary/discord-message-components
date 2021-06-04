@@ -1,14 +1,15 @@
 {
 	"compilerOptions": {
-		"target": "es2017",
-		"strict": true,
-		"jsx": "preserve",
-		"moduleResolution": "node",
-		"importHelpers": true,
-		"skipLibCheck": true,
 		"esModuleInterop": true,
+		"importHelpers": true,
+		"jsx": "preserve",
+		"lib": ["esnext", "dom"],
+		"module": "esnext",
+		"moduleResolution": "node",
+		"skipLibCheck": true,
 		"sourceMap": true,
-		"lib": ["es2017", "dom", "dom.iterable"]
+		"strict": true,
+		"target": "esnext",
 	},
 	"include": [
 		"src/**/*.ts",

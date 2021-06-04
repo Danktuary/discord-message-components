@@ -1,0 +1,45 @@
+{
+  "name": "@discord-message-components/react",
+  "version": "0.0.0",
+  "main": "./dist/react.umd.js",
+  "module": "./dist/react.es.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/react.es.js",
+      "require": "./dist/react.umd.js"
+    },
+    "./styles": "./dist/style.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview",
+    "lint": "eslint . --ext js,ts,tsx",
+    "storybook": "start-storybook -p 6007",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "@discord-message-components/core": "^0.0.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@storybook/addon-actions": "^6.2.7",
+    "@storybook/addon-essentials": "^6.2.7",
+    "@storybook/addon-links": "^6.2.7",
+    "@storybook/react": "^6.2.7",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@vitejs/plugin-react-refresh": "^1.1.0",
+    "babel-loader": "^8.2.2",
+    "eslint-plugin-react": "^7.22.0",
+    "typescript": "^4.1.2",
+    "vite": "^2.0.1"
+  }
+}
