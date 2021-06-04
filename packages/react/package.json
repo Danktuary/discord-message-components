@@ -1,6 +1,6 @@
 {
   "name": "@discord-message-components/react",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "./dist/react.umd.js",
   "module": "./dist/react.es.js",
   "files": [
@@ -22,7 +22,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@discord-message-components/core": "^0.0.0"
+    "@discord-message-components/core": "^0.1.0"
   },
   "peerDependencies": {
     "react": "^17.0.0",

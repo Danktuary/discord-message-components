@@ -1,6 +1,6 @@
 {
   "name": "@discord-message-components/vue",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "./dist/vue.umd.js",
   "module": "./dist/vue.es.js",
   "files": [
@@ -22,7 +22,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@discord-message-components/core": "^0.0.0"
+    "@discord-message-components/core": "^0.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
