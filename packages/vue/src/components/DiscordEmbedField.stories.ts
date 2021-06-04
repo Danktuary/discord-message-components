@@ -51,14 +51,12 @@ const Template: Story = args => ({
 })
 
 export const Default = Template.bind({})
-
-export const Field = Template.bind({})
-Field.args = {
+Default.args = {
 	fieldTitle: 'Field title',
 }
 
 export const InlineField = Template.bind({})
 InlineField.args = {
-	...Field.args,
+	...Default.args,
 	inline: true,
 }
