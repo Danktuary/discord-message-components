@@ -11,6 +11,9 @@ export default {
 			control: 'text',
 			defaultValue: 'Hello, World!',
 		},
+		roleColor: {
+			control: 'color',
+		},
 	},
 } as Meta
 
