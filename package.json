@@ -7,6 +7,15 @@
   ],
   "author": "Sanctuary <sanc.pw@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build:core": "yarn workspace @discord-message-components/core build",
+    "build:react": "yarn workspace @discord-message-components/react build",
+    "build:vue": "yarn workspace @discord-message-components/vue build",
+    "build:react:storybook": "yarn workspace @discord-message-components/react build-storybook",
+    "build:vue:storybook": "yarn workspace @discord-message-components/vue build-storybook",
+    "dev:react:storybook": "yarn build:core && yarn workspace @discord-message-components/react storybook",
+    "dev:vue:storybook": "yarn build:core && yarn workspace @discord-message-components/vue storybook"
+},
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
