@@ -1,6 +1,6 @@
 {
   "name": "@discord-message-components/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "./dist/core.umd.js",
   "module": "./dist/core.es.js",
   "types": "src/index.d.ts",
