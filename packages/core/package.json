@@ -1,6 +1,9 @@
 {
   "name": "@discord-message-components/core",
   "version": "0.1.1",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/core.umd.js",
   "module": "./dist/core.es.js",
   "types": "src/index.d.ts",
@@ -21,5 +24,6 @@
   "dependencies": {
     "color-rgba": "^2.2.3",
     "discord-markdown": "danktuary/discord-markdown"
-  }
+  },
+  "gitHead": "1e5ae8e0fe8afa656bfed9b95c9b61fd7aad3d4d"
 }

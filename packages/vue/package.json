@@ -1,6 +1,9 @@
 {
   "name": "@discord-message-components/vue",
   "version": "0.1.1",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/vue.umd.js",
   "module": "./dist/vue.es.js",
   "files": [
@@ -41,5 +44,6 @@
     "vite": "^2.0.1",
     "vue": "^3.0.6",
     "vue-loader": "^16.1.2"
-  }
+  },
+  "gitHead": "1e5ae8e0fe8afa656bfed9b95c9b61fd7aad3d4d"
 }
