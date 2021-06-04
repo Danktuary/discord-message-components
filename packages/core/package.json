@@ -10,7 +10,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "prepublishOnly": "yarn build"
   },
   "devDependencies": {
     "@types/color-rgba": "^2.1.0",
