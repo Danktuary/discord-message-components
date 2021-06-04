@@ -24,7 +24,7 @@ Coming soon!
 
 ### Vue
 
-Refer to [`@discord-message-components/vue`'s README](https://github.com/Danktuary/discord-message-components/packages/vue#readme) for full notes and examples.
+Refer to [`@discord-message-components/vue`'s README](https://github.com/Danktuary/discord-message-components/tree/main/packages/vue#readme) for full notes and examples.
 
 ```sh
 yarn add @discord-message-components/vue
@@ -61,7 +61,7 @@ import { DiscordMessage, DiscordMessages } from '@discord-message-components/vue
 
 ### React
 
-Refer to [`@discord-message-components/react`'s README](https://github.com/Danktuary/discord-message-components/packages/react#readme) for full notes and examples.
+Refer to [`@discord-message-components/react`'s README](https://github.com/Danktuary/discord-message-components/tree/main/packages/react#readme) for full notes and examples.
 
 ```sh
 yarn add @discord-message-components/react
