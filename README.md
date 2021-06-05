@@ -90,5 +90,6 @@ There are a few clear differences between these packages and actual Discord. The
 
 - These packages use the [Roboto](https://fonts.google.com/specimen/Roboto) font, which is not Discord's default font. You can override this with `.discord-messages { font-family: ... }` in your CSS.
 - Certain icons (such as the ephemeral message icon, verified bot tag icon, etc.) are not included. This may change in the future, but will use free SVG icons as opposed to ones identical to Discord's.
+- Markdown spoilers will display the inner content upon hover instead of upon being clicked.
 
 These packages were made to help developers improve their websites (such as guides, bot dashboards, etc.) by replacing images with code. I do not own any assets used in these packages and do not intend to infringe on any of Discord's copyright. Please contact me if there are any issues in this regard.
