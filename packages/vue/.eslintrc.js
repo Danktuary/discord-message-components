@@ -4,7 +4,7 @@ const path = require('path')
 
 module.exports = {
 	'extends': [
-		path.join('..', '..', '.eslintrc.js'),
+		path.join(__dirname, '..', '..', '.eslintrc.js'),
 		'sora/vue-3',
 		'@vue/typescript/recommended',
 	],
