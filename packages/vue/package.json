@@ -1,6 +1,6 @@
 {
   "name": "@discord-message-components/vue",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publishConfig": {
     "access": "public"
   },
@@ -27,7 +27,7 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@discord-message-components/core": "^0.1.1"
+    "@discord-message-components/core": "^0.1.2"
   },
   "peerDependencies": {
     "vue": "^3.0.6"
