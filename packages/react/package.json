@@ -14,6 +14,7 @@
       "import": "./dist/react.es.js",
       "require": "./dist/react.umd.js"
     },
+    "./dist/*": "./dist/*",
     "./styles": "./dist/style.css"
   },
   "scripts": {
