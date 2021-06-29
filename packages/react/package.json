@@ -1,6 +1,6 @@
 {
   "name": "@discord-message-components/react",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "publishConfig": {
     "access": "public"
   },
@@ -27,7 +27,7 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@discord-message-components/core": "^0.1.2"
+    "@discord-message-components/core": "^0.2.0"
   },
   "peerDependencies": {
     "react": "^17.0.0",
