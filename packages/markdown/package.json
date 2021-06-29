@@ -1,0 +1,43 @@
+{
+	"name": "@discord-message-components/markdown",
+	"version": "0.1.0",
+	"publishConfig": {
+		"access": "public"
+	},
+	"description": "A markdown parser for Discord messages",
+	"keywords": [
+		"discord",
+		"markdown",
+		"parser",
+		"md"
+	],
+	"main": "./dist/markdown.umd.js",
+	"module": "./dist/markdown.es.js",
+	"files": [
+		"dist"
+	],
+	"exports": {
+		".": {
+			"import": "./dist/markdown.es.js",
+			"require": "./dist/markdown.umd.js"
+		}
+	},
+	"types": "index.d.ts",
+	"repository": "https://github.com/danktuary/discord-message-components.git",
+	"author": "Brussell (https://brussell.me)",
+	"contributors": [
+		"Sorunome"
+	],
+	"license": "MIT",
+	"scripts": {
+		"lint": "eslint .",
+		"build": "vite build",
+		"prepublishOnly": "yarn build"
+	},
+	"dependencies": {
+		"simple-markdown": "^0.7.3"
+	},
+	"devDependencies": {
+		"vite": "^2.0.1"
+	}
+}
