@@ -22,6 +22,7 @@
     "vite": "^2.0.1"
   },
   "dependencies": {
+    "@discord-message-components/markdown": "^0.1.0",
     "color-rgba": "^2.2.3"
   },
   "gitHead": "1e5ae8e0fe8afa656bfed9b95c9b61fd7aad3d4d"
