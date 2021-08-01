@@ -51,7 +51,10 @@ export default defineComponent({
 	props: {
 		author: String,
 		avatar: String,
-		bot: Boolean,
+		bot: {
+			type: Boolean,
+			'default': null,
+		},
 		edited: Boolean,
 		profile: String,
 		roleColor: String,
