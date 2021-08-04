@@ -13,7 +13,7 @@ yarn add @discord-message-components/vue
 import { createApp } from 'vue'
 import { install as DiscordMessageComponents } from '@discord-message-components/vue'
 import App from './App.vue'
-import '@discord-message-components/vue/styles'
+import '@discord-message-components/vue/dist/style.css'
 
 const app = createApp(App)
 

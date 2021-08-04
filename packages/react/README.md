@@ -22,7 +22,7 @@ import {
 	DiscordReaction,
 	DiscordReactions,
 } from '@discord-message-components/react'
-import '@discord-message-components/react/styles'
+import '@discord-message-components/react/dist/style.css'
 
 // Extend the default options in order to provide your own
 const discordOptions = {

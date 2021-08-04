@@ -35,7 +35,7 @@ yarn add @discord-message-components/vue
 import { createApp } from 'vue'
 import { install as DiscordMessageComponents } from '@discord-message-components/vue'
 import App from './App.vue'
-import '@discord-message-components/vue/styles'
+import '@discord-message-components/vue/dist/style.css'
 
 const app = createApp(App)
 
@@ -71,7 +71,7 @@ yarn add @discord-message-components/react
 ```js
 import React from 'react'
 import { DiscordMessage, DiscordMessages } from '@discord-message-components/react'
-import '@discord-message-components/react/styles'
+import '@discord-message-components/react/dist/style.css'
 
 export default function App() {
 	return (
