@@ -76,14 +76,14 @@ import {
 
 ### Usage inside Markdown files
 
-If you're using a static site generator like [VuePress](https://vuepress.vuejs.org/) and want to use these components inside your Markdown files, you should use it as such:
+If you're using a static site generator like [VuePress 2](https://v2.vuepress.vuejs.org/) and want to use these components inside your Markdown files, you should use them with PascalCase names:
 
 ```html
-<div is="discord-messages">
-	<discord-message>
+<DiscordMessages>
+	<DiscordMessage>
 		...
-	</discord-message>
-</div>
+	</DiscordMessage>
+</DiscordMessages>
 ```
 
 This is the recommended approach due to how VuePress renders Markdown and HTML inside Markdown files. It doesn't recognize `<discord-messages>` as an HTML element, therefore rendering anything indented inside it as a regular codeblock.
