@@ -1,4 +1,5 @@
 .discord-embed .discord-embed-field {
+	color: #72767d;
 	min-width: 100%;
 	margin-top: 5px;
 }
@@ -10,7 +11,7 @@
 }
 
 .discord-embed .discord-embed-field .discord-embed-field-title {
-	color: #72767d;
+	color: #dcddde;
 	font-weight: 500;
 	margin-bottom: 2px;
 }
