@@ -12,6 +12,9 @@
 		"resolveJsonModule": true,
 		"skipLibCheck": false,
 		"types": ["vite/client"],
+		"declaration": true,
+		"outDir": "dist",
+		"declarationDir": "dist"
 	},
 	"include": [
 		"src/**/*.d.ts",

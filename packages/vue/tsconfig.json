@@ -3,6 +3,9 @@
 	"compilerOptions": {
 		"resolveJsonModule": true,
 		"types": ["vite/client"],
+		"outDir": "dist",
+		"declaration": true,
+		"declarationDir": "dist"
 	},
 	"include": [
 		"src/**/*.d.ts",

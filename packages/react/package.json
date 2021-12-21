@@ -6,6 +6,7 @@
   },
   "main": "./dist/react.umd.js",
   "module": "./dist/react.es.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -24,7 +25,8 @@
     "lint": "eslint . --ext js,ts,tsx",
     "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn build",
+    "tscBuild": "tsc --build tsconfig.json"
   },
   "dependencies": {
     "@discord-message-components/core": "^0.2.1"
@@ -35,6 +37,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
+    "@rollup/plugin-typescript": "^8.3.0",
     "@storybook/addon-actions": "^6.2.7",
     "@storybook/addon-essentials": "^6.2.7",
     "@storybook/addon-links": "^6.2.7",
